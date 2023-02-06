@@ -19,6 +19,7 @@
     "rules": {
         "react/jsx-one-expression-per-line": "off",
         "react/jsx-filename-extension": "off",
-        "no-restricted-syntax": "off"
+        "no-restricted-syntax": "off",
+        "jsx-a11y/click-events-have-key-events": "off"
     }
 }
