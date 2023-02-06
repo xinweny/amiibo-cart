@@ -4,7 +4,8 @@
         "es2021": true
     },
     "extends": [
-        "plugin:react/recommended"
+        "plugin:react/recommended",
+        "airbnb"
     ],
     "overrides": [
     ],
@@ -16,5 +17,7 @@
         "react"
     ],
     "rules": {
+        "react/jsx-one-expression-per-line": "off",
+        "react/jsx-filename-extension": "off"
     }
 }
