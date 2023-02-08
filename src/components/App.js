@@ -1,9 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import RouteSwitch from './RouteSwitch';
 
 function App() {
   const [cart, setCart] = useState([]);
+  const [total, setTotal] = useState(0);
+
+  useEffect(() => {
+    const newTotal = cart.reduce((currTotal, item) => (
+      currTotal + (item.price * item.quantity)
+    ), 0);
+
+    setTotal(newTotal);
+  }, [cart]);
 
   const addToCart = (id, name, price, image, quantity) => {
     setCart((prevCart) => {
@@ -19,6 +28,7 @@ function App() {
       const cartItem = {
         id, name, image, price, quantity,
       };
+
       return [...prevCart, cartItem];
     });
   };
@@ -30,6 +40,7 @@ function App() {
   return (
     <RouteSwitch
       cart={cart}
+      total={total}
       addToCart={addToCart}
       deleteFromCart={deleteFromCart}
     />

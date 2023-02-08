@@ -9,10 +9,15 @@ import CardDisplay from './CardDisplay';
 import ProductPage from './ProductPage';
 import Footer from './Footer';
 
-function RouteSwitch({ cart, addToCart, deleteFromCart }) {
+function RouteSwitch({
+  cart,
+  addToCart,
+  deleteFromCart,
+  total,
+}) {
   return (
     <BrowserRouter>
-      <NavBar cart={cart} deleteFromCart={deleteFromCart} />
+      <NavBar cart={cart} total={total} deleteFromCart={deleteFromCart} />
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/shop" element={<Shop />}>
@@ -31,12 +36,14 @@ function RouteSwitch({ cart, addToCart, deleteFromCart }) {
 
 RouteSwitch.propTypes = {
   cart: PropTypes.arrayOf(NavBar.propTypes),
+  total: PropTypes.number,
   addToCart: PropTypes.func.isRequired,
   deleteFromCart: PropTypes.func.isRequired,
 };
 
 RouteSwitch.defaultProps = {
   cart: [],
+  total: 0,
 };
 
 export default RouteSwitch;
