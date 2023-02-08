@@ -18,7 +18,7 @@ function CardDisplay() {
           throw new Error(`${data.code}: ${data.error}`);
         }
 
-        setAmiibos((prevState) => [prevState, ...data.amiibo]);
+        setAmiibos(data.amiibo);
       })
       .catch((err) => {
         console.log(err);

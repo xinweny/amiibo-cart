@@ -10,7 +10,8 @@ function Shop() {
     fetch('https://www.amiiboapi.com/api/amiiboseries/')
       .then((response) => response.json())
       .then((data) => {
-        setSeries(data.amiibo);
+        const uniqueSeries = Array.from(new Set(data.amiibo.map((s) => s.name)));
+        setSeries(uniqueSeries.map((name) => data.amiibo.find((s) => s.name === name)));
       });
   }, []);
 

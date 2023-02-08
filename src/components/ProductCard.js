@@ -15,7 +15,16 @@ function ProductCard({ amiibo, id }) {
 
 ProductCard.propTypes = {
   id: PropTypes.string.isRequired,
-  amiibo: PropTypes.objectOf(PropTypes.string).isRequired,
+  amiibo: PropTypes.shape({
+    amiiboSeries: PropTypes.string.isRequired,
+    character: PropTypes.string.isRequired,
+    head: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    release: PropTypes.objectOf(PropTypes.string),
+    tail: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default ProductCard;

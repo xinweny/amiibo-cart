@@ -17,7 +17,7 @@ function ShopMenu({ series }) {
 }
 
 ShopMenu.propTypes = {
-  series: PropTypes.arrayOf(PropTypes.shape).isRequired,
+  series: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string.isRequired)).isRequired,
 };
 
 export default ShopMenu;
