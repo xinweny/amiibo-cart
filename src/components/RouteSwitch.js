@@ -14,7 +14,8 @@ function RouteSwitch() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/shop" element={<Shop />}>
-          <Route path=":series" element={<CardDisplay />} />
+          <Route path="/shop/all" element={<CardDisplay />} />
+          <Route path="/shop/:series" element={<CardDisplay />} />
         </Route>
       </Routes>
       <Footer />
