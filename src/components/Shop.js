@@ -25,7 +25,21 @@ function Shop() {
           throw new Error(`${data.code}: ${data.error}`);
         }
 
-        const amiiboData = data.amiibo.map((a) => ({ ...a, id: a.head + a.tail }));
+        const amiiboData = data.amiibo.map((a) => {
+          let price;
+          switch (a.type) {
+            case 'Figure': price = 15.99; break;
+            case 'Card': price = 5.99; break;
+            case 'Yarn': price = 39.99; break;
+            default: price = 9.99; break;
+          }
+
+          return {
+            ...a,
+            id: a.head + a.tail,
+            price,
+          };
+        });
 
         setAmiibos(amiiboData);
       })

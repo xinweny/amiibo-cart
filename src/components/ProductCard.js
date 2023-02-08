@@ -28,6 +28,7 @@ ProductCard.propTypes = {
     release: PropTypes.objectOf(PropTypes.string),
     tail: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
   }).isRequired,
 };
 

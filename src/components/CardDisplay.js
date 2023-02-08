@@ -1,13 +1,13 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import ProductCard from './ProductCard';
 
 function CardDisplay({ amiibos }) {
-  const series = useLocation().state;
+  const { series } = useParams();
   const showAmiibos = (series)
-    ? amiibos.filter((amiibo) => amiibo.amiiboSeries === series.name)
+    ? amiibos.filter((amiibo) => amiibo.amiiboSeries === series)
     : amiibos;
 
   return (
@@ -31,6 +31,7 @@ CardDisplay.propTypes = {
     release: PropTypes.objectOf(PropTypes.string),
     tail: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
   })),
 };
 
