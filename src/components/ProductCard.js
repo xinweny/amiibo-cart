@@ -27,7 +27,7 @@ ProductCard.propTypes = {
     head: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    release: PropTypes.objectOf(PropTypes.string),
+    release: PropTypes.objectOf(PropTypes.string).isRequired,
     tail: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
