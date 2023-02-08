@@ -7,7 +7,7 @@ function ShopMenu({ series }) {
     <div>
       <ul>
         {series.map((s) => (
-          <li key={s.id}>
+          <li key={s.key}>
             <Link to={`/shop/${encodeURIComponent(s.name)}`}>{s.name}</Link>
           </li>
         ))}

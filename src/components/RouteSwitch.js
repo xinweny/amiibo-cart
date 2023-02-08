@@ -5,6 +5,7 @@ import NavBar from './NavBar';
 import Homepage from './Homepage';
 import Shop from './Shop';
 import CardDisplay from './CardDisplay';
+import ProductPage from './ProductPage';
 import Footer from './Footer';
 
 function RouteSwitch() {
@@ -17,6 +18,7 @@ function RouteSwitch() {
           <Route exact path="/shop/all" element={<CardDisplay />} />
           <Route path="/shop/:series" element={<CardDisplay />} />
         </Route>
+        <Route path="/amiibo/:id" element={<ProductPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

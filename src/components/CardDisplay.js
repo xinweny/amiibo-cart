@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
+import ProductCard from './ProductCard';
+
 function CardDisplay() {
   const series = useParams().series || null;
   const [amiibos, setAmiibos] = useState([]);
@@ -11,13 +13,27 @@ function CardDisplay() {
     fetch(`https://www.amiiboapi.com/api/amiibo/${query}`)
       .then((response) => response.json())
       .then((data) => {
+        if (data.error) {
+          setAmiibos([]);
+          throw new Error(`${data.code}: ${data.error}`);
+        }
+
         setAmiibos((prevState) => [prevState, ...data.amiibo]);
+      })
+      .catch((err) => {
+        console.log(err);
       });
-  });
+  }, [series]);
 
   return (
     <div>
-      {amiibos.map((amiibo) => <p key={amiibo.head + amiibo.tail}>{amiibo.name}</p>)}
+      {(amiibos.length > 0)
+        ? amiibos.map((amiibo) => {
+          const id = String(amiibo.head + amiibo.tail);
+
+          return <ProductCard key={id} amiibo={amiibo} id={id} />;
+        })
+        : <p>No amiibos found</p>}
     </div>
   );
 }
