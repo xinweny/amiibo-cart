@@ -4,7 +4,11 @@ import PropTypes from 'prop-types';
 
 function ProductCard({ amiibo }) {
   return (
-    <Link to={`/amiibo/${amiibo.id}`} state={amiibo}>
+    <Link
+      to={`/amiibo/${amiibo.id}`}
+      state={amiibo}
+      onClick={() => localStorage.setItem(amiibo.id, JSON.stringify(amiibo))}
+    >
       <div className="product-card">
         <img src={amiibo.image} alt={amiibo.name} />
         <p>{amiibo.name}</p>

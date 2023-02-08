@@ -1,8 +1,10 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 
 function ProductPage() {
-  const amiibo = useLocation().state;
+  const amiibo = useLocation().state
+    ? useLocation().state
+    : JSON.parse(localStorage.getItem(useParams().id));
 
   return (
     <div className="product-page">
