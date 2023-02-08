@@ -5,6 +5,7 @@ import CardDisplay from './CardDisplay';
 
 function Shop() {
   const [series, setSeries] = useState([]);
+  const [amiibos, setAmiibos] = useState([]);
 
   useEffect(() => {
     fetch('https://www.amiiboapi.com/api/amiiboseries/')
@@ -15,10 +16,28 @@ function Shop() {
       });
   }, []);
 
+  useEffect(() => {
+    fetch('https://www.amiiboapi.com/api/amiibo/')
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.error) {
+          setAmiibos([]);
+          throw new Error(`${data.code}: ${data.error}`);
+        }
+
+        const amiiboData = data.amiibo.map((a) => ({ ...a, id: a.head + a.tail }));
+
+        setAmiibos(amiiboData);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <div>
       <ShopMenu series={series} />
-      <CardDisplay />
+      <CardDisplay amiibos={amiibos} />
     </div>
   );
 }

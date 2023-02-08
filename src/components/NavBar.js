@@ -8,7 +8,7 @@ function NavBar() {
       <h1>Amiibo Cart</h1>
       <ul className="links">
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/shop/all">Shop</Link></li>
+        <li><Link to="/shop">Shop</Link></li>
       </ul>
     </div>
   );

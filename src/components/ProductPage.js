@@ -3,10 +3,11 @@ import { useLocation } from 'react-router-dom';
 
 function ProductPage() {
   const amiibo = useLocation().state;
-  console.log(amiibo);
 
   return (
-    <div className="product-page" />
+    <div className="product-page">
+      <img src={amiibo.image} alt={amiibo.name} />
+    </div>
   );
 }
 

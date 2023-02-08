@@ -1,41 +1,33 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React from 'react';
+import { useLocation } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import ProductCard from './ProductCard';
 
-function CardDisplay() {
-  const series = useParams().series || null;
-  const [amiibos, setAmiibos] = useState([]);
-
-  useEffect(() => {
-    const query = (series ? `?amiiboSeries=${series}` : '');
-
-    fetch(`https://www.amiiboapi.com/api/amiibo/${query}`)
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.error) {
-          setAmiibos([]);
-          throw new Error(`${data.code}: ${data.error}`);
-        }
-
-        setAmiibos(data.amiibo);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [series]);
+function CardDisplay({ amiibos }) {
+  const series = useLocation().state;
+  const showAmiibos = (series)
+    ? amiibos.filter((amiibo) => amiibo.amiiboSeries === series.name)
+    : amiibos;
 
   return (
     <div>
-      {(amiibos.length > 0)
-        ? amiibos.map((amiibo) => {
-          const id = String(amiibo.head + amiibo.tail);
-
-          return <ProductCard key={id} amiibo={amiibo} id={id} />;
-        })
-        : <p>No amiibos found</p>}
+      {showAmiibos.map((amiibo) => <ProductCard key={amiibo.id} amiibo={amiibo} />)}
     </div>
   );
 }
+
+CardDisplay.propTypes = {
+  amiibos: PropTypes.arrayOf(PropTypes.shape({
+    amiiboSeries: PropTypes.string.isRequired,
+    character: PropTypes.string.isRequired,
+    head: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    release: PropTypes.objectOf(PropTypes.string),
+    tail: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+  })).isRequired,
+};
 
 export default CardDisplay;
