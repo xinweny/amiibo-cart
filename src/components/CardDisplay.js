@@ -17,6 +17,10 @@ function CardDisplay({ amiibos }) {
   );
 }
 
+CardDisplay.defaultProps = {
+  amiibos: [],
+};
+
 CardDisplay.propTypes = {
   amiibos: PropTypes.arrayOf(PropTypes.shape({
     amiiboSeries: PropTypes.string.isRequired,
@@ -27,7 +31,7 @@ CardDisplay.propTypes = {
     release: PropTypes.objectOf(PropTypes.string),
     tail: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
-  })).isRequired,
+  })),
 };
 
 export default CardDisplay;

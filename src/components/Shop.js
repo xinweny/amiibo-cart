@@ -37,7 +37,7 @@ function Shop() {
   return (
     <div>
       <ShopMenu series={series} />
-      <CardDisplay amiibos={amiibos} />
+      {(amiibos.length > 0) ? <CardDisplay amiibos={amiibos} /> : ''}
     </div>
   );
 }
