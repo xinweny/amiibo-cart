@@ -6,9 +6,9 @@ function ShopMenu({ series }) {
   return (
     <div>
       <ul>
-        {series.map((name) => (
-          <li key={name}>
-            <Link to={`/shop/${encodeURIComponent(name)}`}>{name}</Link>
+        {series.map((s) => (
+          <li key={s.id}>
+            <Link to={`/shop/${encodeURIComponent(s.name)}`}>{s.name}</Link>
           </li>
         ))}
       </ul>
@@ -17,7 +17,7 @@ function ShopMenu({ series }) {
 }
 
 ShopMenu.propTypes = {
-  series: PropTypes.arrayOf(PropTypes.string).isRequired,
+  series: PropTypes.arrayOf(PropTypes.shape).isRequired,
 };
 
 export default ShopMenu;
