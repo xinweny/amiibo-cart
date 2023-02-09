@@ -5,10 +5,8 @@ function CartButton({ cart }) {
   return (
     <Link to="/checkout">
       <img src="#" alt="Cart icon" />
-      <div>{cart.reduce((currNum, item) => {
-        console.log(currNum, item.quantity);
-        return currNum + item.quantity;
-      }, 0)}
+      <div>
+        {cart.reduce((currNum, item) => currNum + item.quantity, 0)}
       </div>
     </Link>
   );
