@@ -1,22 +1,29 @@
 import React from 'react';
 
-function CheckoutPage({ cart, total, deleteFromCart }) {
+import CartItem from './CartItem';
+
+function CheckoutPage({
+  cart,
+  total,
+  editQuantityInCart,
+  deleteFromCart,
+}) {
   return (
-    <div className="cart">
-      <div className="cart-items">
-        {cart.map((cartItem) => (
-          <div key={cartItem.id}>
-            <div>
-              <img src={cartItem.image} alt={cartItem.name} />
-              <p>{cartItem.name} ({cartItem.series})</p>
-              <p>{cartItem.quantity}</p>
-              <p>${cartItem.price * cartItem.quantity}</p>
-            </div>
-            <button type="button" onClick={deleteFromCart}>x</button>
-          </div>
-        ))}
+    <div className="checkout-page">
+      <div className="cart">
+        <div className="cart-items">
+          {cart.map((cartItem) => (
+            <CartItem
+              key={cartItem.id}
+              item={cartItem}
+              editQuantity={editQuantityInCart}
+              deleteItem={deleteFromCart}
+            />
+          ))}
+        </div>
+        <p>Total: ${(Math.round(total * 100) / 100).toFixed(2)}</p>
       </div>
-      <p>Total: ${(Math.round(total * 100) / 100).toFixed(2)}</p>
+      <button className="checkout-btn" type="button">Checkout</button>
     </div>
   );
 }
