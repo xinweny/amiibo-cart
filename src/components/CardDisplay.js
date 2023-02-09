@@ -11,7 +11,10 @@ function CardDisplay({ amiibos }) {
 
   return (
     <div>
-      {showAmiibos.map((amiibo) => <ProductCard key={amiibo.id} amiibo={amiibo} />)}
+      <h2>{series || 'All'}</h2>
+      <div className="product-cards">
+        {showAmiibos.map((amiibo) => <ProductCard key={amiibo.id} amiibo={amiibo} />)}
+      </div>
     </div>
   );
 }
