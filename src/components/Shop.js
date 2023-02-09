@@ -17,7 +17,7 @@ function Shop() {
   }, []);
 
   useEffect(() => {
-    fetch('https://www.amiiboapi.com/api/amiibo/')
+    fetch('https://www.amiiboapi.com/api/amiibo/?showusage')
       .then((response) => response.json())
       .then((data) => {
         if (data.error) {

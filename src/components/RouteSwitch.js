@@ -13,11 +13,12 @@ function RouteSwitch({
   cart,
   addToCart,
   deleteFromCart,
+  editQuantityInCart,
   total,
 }) {
   return (
     <BrowserRouter>
-      <NavBar cart={cart} total={total} deleteFromCart={deleteFromCart} />
+      <NavBar cart={cart} />
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/shop" element={<Shop />}>
@@ -25,7 +26,19 @@ function RouteSwitch({
           <Route path="/shop/:series" element={<CardDisplay />} />
         </Route>
         <Route path="/amiibo/:id" element={<ProductPage addToCart={addToCart} />} />
-        <Route path="/checkout" element={<CheckoutPage />} />
+        <Route
+          path="/checkout"
+          element={
+            (
+              <CheckoutPage
+                cart={cart}
+                total={total}
+                deleteFromCart={deleteFromCart}
+                editQuantityInCart={editQuantityInCart}
+              />
+            )
+          }
+        />
       </Routes>
       <Footer />
     </BrowserRouter>

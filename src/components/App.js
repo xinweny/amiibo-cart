@@ -12,19 +12,22 @@ function App() {
     ), 0);
 
     setTotal(newTotal);
+
+    localStorage.setItem('amiiboCart', JSON.stringify(cart));
   }, [cart]);
+
+  useEffect(() => localStorage.setItem('amiiboTotal', total), [total]);
 
   const addToCart = (amiibo, quantity) => {
     setCart((prevCart) => {
-      const itemInCart = cart.find((item) => item.id === amiibo.id);
+      const index = prevCart.findIndex((item) => item.id === amiibo.id);
 
-      if (itemInCart) {
-        const index = prevCart.indexOf(itemInCart);
-        const newCart = [...prevCart];
-        newCart[index].quantity += quantity;
-
-        return newCart;
+      if (index !== -1) {
+        return prevCart.map((item, i) => (
+          (i === index) ? { ...item, quantity: item.quantity + quantity } : item
+        ));
       }
+
       const cartItem = {
         id: amiibo.id,
         name: amiibo.name,
@@ -34,6 +37,16 @@ function App() {
       };
 
       return [...prevCart, cartItem];
+    });
+  };
+
+  const editQuantityInCart = (id, quantity) => {
+    setCart((prevCart) => {
+      const newCart = [...prevCart];
+      const index = newCart.findIndex((item) => item.id === id);
+      newCart[index].quantity = quantity;
+
+      return newCart;
     });
   };
 
@@ -47,6 +60,7 @@ function App() {
       total={total}
       addToCart={addToCart}
       deleteFromCart={deleteFromCart}
+      editQuantityInCart={editQuantityInCart}
     />
   );
 }

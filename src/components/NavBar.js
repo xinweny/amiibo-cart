@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import Cart from './CartButton';
+import CartButton from './CartButton';
 
-function NavBar({ cart, deleteFromCart, total }) {
+function NavBar({ cart }) {
   return (
     <div className="nav-bar">
       <h1>Amiibo Cart</h1>
@@ -11,7 +11,7 @@ function NavBar({ cart, deleteFromCart, total }) {
         <li><Link to="/">Home</Link></li>
         <li><Link to="/shop">Shop</Link></li>
       </ul>
-      <Cart cart={cart} total={total} deleteFromCart={deleteFromCart} />
+      <CartButton cart={cart} />
     </div>
   );
 }
