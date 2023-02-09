@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 
 import RouteSwitch from './RouteSwitch';
 
+import '../styles/App.css';
+
 function App() {
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
@@ -52,13 +54,15 @@ function App() {
   };
 
   return (
-    <RouteSwitch
-      cart={cart}
-      total={total}
-      addToCart={addToCart}
-      deleteFromCart={deleteFromCart}
-      editQuantityInCart={editQuantityInCart}
-    />
+    <div className="app">
+      <RouteSwitch
+        cart={cart}
+        total={total}
+        addToCart={addToCart}
+        deleteFromCart={deleteFromCart}
+        editQuantityInCart={editQuantityInCart}
+      />
+    </div>
   );
 }
 

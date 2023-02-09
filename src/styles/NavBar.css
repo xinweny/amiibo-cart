@@ -1,0 +1,17 @@
+.nav-bar {
+	display: grid;
+	grid-template-columns: auto 1fr auto;
+	align-items: center;
+	gap: 24px;
+	padding: 16px;
+}
+
+.nav-links {
+	display: flex;
+	justify-self: end;
+	gap: 16px;
+}
+
+.nav-bar li {
+	list-style-type: none;
+}
