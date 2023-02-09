@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 
-import ProductInfo from './ProductInfo';
+import InputQuantity from './InputQuantity';
 
 function ProductPage({ addToCart }) {
+  const [quantity, setQuantity] = useState(1);
+
   const amiibo = (useLocation().state)
     ? useLocation().state
     : JSON.parse(localStorage.getItem(useParams().id));
@@ -12,7 +14,12 @@ function ProductPage({ addToCart }) {
   return (
     <div className="product-page">
       <img src={amiibo.image} alt={amiibo.name} />
-      <ProductInfo addToCart={addToCart} amiibo={amiibo} />
+      <div>
+        <InputQuantity quantity={quantity} setQuantity={setQuantity} />
+        <button type="button" onClick={() => addToCart(amiibo, quantity)}>
+          Add To Cart
+        </button>
+      </div>
     </div>
   );
 }
