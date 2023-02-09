@@ -12,11 +12,7 @@ function App() {
     ), 0);
 
     setTotal(newTotal);
-
-    localStorage.setItem('amiiboCart', JSON.stringify(cart));
   }, [cart]);
-
-  useEffect(() => localStorage.setItem('amiiboTotal', total), [total]);
 
   const addToCart = (amiibo, quantity) => {
     setCart((prevCart) => {

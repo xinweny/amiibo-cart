@@ -5,7 +5,7 @@ import ProductCard from './ProductCard';
 
 function CardDisplay({ amiibos }) {
   const { series } = useParams();
-  console.log(series);
+
   const showAmiibos = (series)
     ? amiibos.filter((amiibo) => amiibo.amiiboSeries === series)
     : amiibos;

@@ -21,7 +21,7 @@ function CheckoutPage({
             />
           ))}
         </div>
-        <p>Total: ${(Math.round(total * 100) / 100).toFixed(2)}</p>
+        <p>Total: ${total}</p>
       </div>
       <button className="checkout-btn" type="button">Checkout</button>
     </div>
