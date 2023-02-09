@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import ShopMenu from './ShopMenu';
 import CardDisplay from './CardDisplay';
 import LoadingPage from './LoadingPage';
+import ErrorPage from './ErrorPage';
 
 function Shop() {
   const [series, setSeries] = useState([]);
@@ -11,14 +12,24 @@ function Shop() {
     series: false,
     amiibos: false,
   });
+  const [hasError, setHasError] = useState(false);
+
+  useEffect(() => setHasError(false), []);
 
   useEffect(() => {
     fetch('https://www.amiiboapi.com/api/amiiboseries/')
       .then((response) => response.json())
       .then((data) => {
+        if (data.error) {
+          const errObj = { ...data };
+          errObj.displayMsg = 'Something went wrong. Please try again.';
+          throw errObj;
+        }
+
         const uniqueSeries = Array.from(new Set(data.amiibo.map((s) => s.name)));
         setSeries(uniqueSeries.map((name) => data.amiibo.find((s) => s.name === name)));
-      });
+      })
+      .catch((errObj) => setHasError(errObj));
   }, []);
 
   useEffect(() => {
@@ -26,8 +37,9 @@ function Shop() {
       .then((response) => response.json())
       .then((data) => {
         if (data.error) {
-          setAmiibos([]);
-          throw new Error(`${data.code}: ${data.error}`);
+          const errObj = { ...data };
+          errObj.displayMsg = 'Something went wrong. Please try again.';
+          throw errObj;
         }
 
         const amiiboData = data.amiibo.map((a) => {
@@ -48,12 +60,14 @@ function Shop() {
 
         setAmiibos(amiiboData);
       })
-      .catch((err) => err);
+      .catch((errObj) => setHasError(errObj));
   }, []);
 
   useEffect(() => setIsLoaded((prev) => ({ ...prev, series: true })), [series]);
 
   useEffect(() => setIsLoaded((prev) => ({ ...prev, amiibos: true })), [amiibos]);
+
+  if (hasError) return <ErrorPage code={hasError.code} message={hasError.displayMsg} />;
 
   return (
     <div>

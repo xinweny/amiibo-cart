@@ -7,6 +7,7 @@ import Shop from './Shop';
 import CardDisplay from './CardDisplay';
 import ProductPage from './ProductPage';
 import CheckoutPage from './CheckoutPage';
+import ErrorPage from './ErrorPage';
 import Footer from './Footer';
 
 function RouteSwitch({
@@ -39,6 +40,7 @@ function RouteSwitch({
             )
           }
         />
+        <Route path="*" element={<ErrorPage code="404" message="Page not found" />} />
       </Routes>
       <Footer />
     </BrowserRouter>
