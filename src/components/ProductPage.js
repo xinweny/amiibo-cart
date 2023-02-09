@@ -7,8 +7,9 @@ function ProductPage({ addToCart }) {
   const [quantity, setQuantity] = useState(1);
 
   const amiibo = (useLocation().state)
-    ? useLocation().state
+    ? { ...useLocation().state }
     : JSON.parse(localStorage.getItem(useParams().id));
+
   amiibo.price = Number(amiibo.price);
 
   return (
