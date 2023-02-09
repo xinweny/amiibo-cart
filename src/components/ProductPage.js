@@ -1,6 +1,5 @@
 import React from 'react';
 import { useParams, useLocation } from 'react-router-dom';
-import PropTypes from 'prop-types';
 
 import ProductInfo from './ProductInfo';
 
@@ -17,9 +16,5 @@ function ProductPage({ addToCart }) {
     </div>
   );
 }
-
-ProductPage.propTypes = {
-  addToCart: PropTypes.func.isRequired,
-};
 
 export default ProductPage;

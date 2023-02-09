@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 
-import Cart from './Cart';
+import Cart from './CartButton';
 
 function NavBar({ cart, deleteFromCart, total }) {
   return (
@@ -16,11 +15,5 @@ function NavBar({ cart, deleteFromCart, total }) {
     </div>
   );
 }
-
-NavBar.propTypes = {
-  cart: Cart.propTypes.cart.isRequired,
-  deleteFromCart: PropTypes.func.isRequired,
-  total: PropTypes.number.isRequired,
-};
 
 export default NavBar;

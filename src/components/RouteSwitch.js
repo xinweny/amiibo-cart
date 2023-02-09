@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import PropTypes from 'prop-types';
 
 import NavBar from './NavBar';
 import Homepage from './Homepage';
 import Shop from './Shop';
 import CardDisplay from './CardDisplay';
 import ProductPage from './ProductPage';
+import CheckoutPage from './CheckoutPage';
 import Footer from './Footer';
 
 function RouteSwitch({
@@ -24,26 +24,12 @@ function RouteSwitch({
           <Route exact path="/shop" element={<CardDisplay />} />
           <Route path="/shop/:series" element={<CardDisplay />} />
         </Route>
-        <Route
-          path="/amiibo/:id"
-          element={<ProductPage addToCart={addToCart} />}
-        />
+        <Route path="/amiibo/:id" element={<ProductPage addToCart={addToCart} />} />
+        <Route path="/checkout" element={<CheckoutPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>
   );
 }
-
-RouteSwitch.propTypes = {
-  cart: PropTypes.arrayOf(NavBar.propTypes),
-  total: PropTypes.number,
-  addToCart: PropTypes.func.isRequired,
-  deleteFromCart: PropTypes.func.isRequired,
-};
-
-RouteSwitch.defaultProps = {
-  cart: [],
-  total: 0,
-};
 
 export default RouteSwitch;

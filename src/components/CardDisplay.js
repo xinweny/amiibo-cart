@@ -1,6 +1,5 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import PropTypes from 'prop-types';
 
 import ProductCard from './ProductCard';
 
@@ -16,13 +15,5 @@ function CardDisplay({ amiibos }) {
     </div>
   );
 }
-
-CardDisplay.defaultProps = {
-  amiibos: [],
-};
-
-CardDisplay.propTypes = {
-  amiibos: PropTypes.arrayOf(ProductCard.propTypes),
-};
 
 export default CardDisplay;

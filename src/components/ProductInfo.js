@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 
 function ProductInfo({ addToCart, amiibo }) {
   const [quantity, setQuantity] = useState(1);
@@ -32,28 +31,12 @@ function ProductInfo({ addToCart, amiibo }) {
       </div>
       <button
         type="button"
-        onClick={() => addToCart(amiibo.id, amiibo.name, amiibo.price, amiibo.image, quantity)}
+        onClick={() => addToCart(amiibo, quantity)}
       >
         Add To Cart
       </button>
     </div>
   );
 }
-
-ProductInfo.propTypes = {
-  addToCart: PropTypes.func.isRequired,
-  amiibo: PropTypes.shape({
-    id: PropTypes.string,
-    amiiboSeries: PropTypes.string,
-    character: PropTypes.string,
-    head: PropTypes.string,
-    image: PropTypes.string,
-    name: PropTypes.string,
-    release: PropTypes.objectOf(PropTypes.string),
-    tail: PropTypes.string,
-    type: PropTypes.string,
-    price: PropTypes.number,
-  }).isRequired,
-};
 
 export default ProductInfo;
