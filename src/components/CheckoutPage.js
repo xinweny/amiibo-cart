@@ -8,7 +8,7 @@ function CheckoutPage({ cart, total, deleteFromCart }) {
           <div key={cartItem.id}>
             <div>
               <img src={cartItem.image} alt={cartItem.name} />
-              <p>{cartItem.name}</p>
+              <p>{cartItem.name} ({cartItem.series})</p>
               <p>{cartItem.quantity}</p>
               <p>${cartItem.price * cartItem.quantity}</p>
             </div>

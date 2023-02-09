@@ -33,6 +33,7 @@ function App() {
         name: amiibo.name,
         image: amiibo.image,
         price: amiibo.price,
+        series: amiibo.amiiboSeries,
         quantity,
       };
 
