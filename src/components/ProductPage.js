@@ -25,7 +25,12 @@ function ProductPage({ addToCart }) {
         </button>
       </div>
       <div>
-        <h3>Release Date</h3>
+        <p>Amiibo series: {amiibo.amiiboSeries}</p>
+        <p>Character: {amiibo.character}</p>
+        <p>Game series: {amiibo.gameSeries}</p>
+      </div>
+      <div>
+        <h3>Release Dates</h3>
         <ReleaseInfo releases={amiibo.release} />
       </div>
       <div>
