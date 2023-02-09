@@ -5,7 +5,7 @@ function ProductCard({ amiibo }) {
   return (
     <Link
       className="product-card"
-      to={`/amiibo/${amiibo.id}`}
+      to={`/shop/amiibo/${amiibo.id}`}
       state={amiibo}
       onClick={() => localStorage.setItem(amiibo.id, JSON.stringify(amiibo))}
     >

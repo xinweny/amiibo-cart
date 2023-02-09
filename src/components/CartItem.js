@@ -11,7 +11,7 @@ function CartItem({ item, editQuantity, deleteItem }) {
     <div className="cart-item">
       <div>
         <img src={item.image} alt={item.name} />
-        <Link to={`/amiibo/${item.id}`}>
+        <Link to={`/shop/amiibo/${item.id}`}>
           <p>{item.name} ({item.series})</p>
         </Link>
         {(showEditQuantity)

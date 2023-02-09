@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import uniqid from 'uniqid';
+
 function UsageTable({ usageData }) {
   const consoles = Object.keys(usageData);
 
@@ -10,6 +12,7 @@ function UsageTable({ usageData }) {
       <div className="table-tabs">
         {consoles.map((console) => (
           <button
+            key={console}
             type="button"
             className={(console === activeTab) ? 'active' : ''}
             onClick={() => setActiveTab(console)}
@@ -20,11 +23,11 @@ function UsageTable({ usageData }) {
       </div>
       <div className="usage-table">
         {usageData[activeTab].map((data) => (
-          <div className="row">
+          <div className="row" key={data.gameID[0]}>
             <div className="game-name">{data.gameName}</div>
             <div className="game-usage">
               {data.amiiboUsage.map((use) => (
-                <div>{use.Usage}</div>
+                <div key={uniqid()}>{use.Usage}</div>
               ))}
             </div>
           </div>

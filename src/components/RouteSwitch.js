@@ -24,9 +24,9 @@ function RouteSwitch({
         <Route path="/" element={<Homepage />} />
         <Route path="/shop" element={<Shop />}>
           <Route exact path="/shop" element={<CardDisplay />} />
-          <Route path="/shop/:series" element={<CardDisplay />} />
+          <Route path="/shop/series/:series" element={<CardDisplay />} />
         </Route>
-        <Route path="/amiibo/:id" element={<ProductPage addToCart={addToCart} />} />
+        <Route path="/shop/amiibo/:id" element={<ProductPage addToCart={addToCart} />} />
         <Route
           path="/checkout"
           element={
