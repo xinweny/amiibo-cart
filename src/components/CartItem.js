@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import InputQuantity from './InputQuantity';
 
@@ -10,7 +11,9 @@ function CartItem({ item, editQuantity, deleteItem }) {
     <div className="cart-item">
       <div>
         <img src={item.image} alt={item.name} />
-        <p>{item.name} ({item.series})</p>
+        <Link to={`/amiibo/${item.id}`}>
+          <p>{item.name} ({item.series})</p>
+        </Link>
         {(showEditQuantity)
           ? (
             <div>
