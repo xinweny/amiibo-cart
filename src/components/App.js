@@ -14,9 +14,9 @@ function App() {
     setTotal(newTotal);
   }, [cart]);
 
-  const addToCart = (id, name, price, image, quantity) => {
+  const addToCart = (amiibo, quantity) => {
     setCart((prevCart) => {
-      const itemInCart = cart.find((item) => item.id === id);
+      const itemInCart = cart.find((item) => item.id === amiibo.id);
 
       if (itemInCart) {
         const index = prevCart.indexOf(itemInCart);
@@ -26,7 +26,11 @@ function App() {
         return newCart;
       }
       const cartItem = {
-        id, name, image, price, quantity,
+        id: amiibo.id,
+        name: amiibo.name,
+        image: amiibo.image,
+        price: amiibo.price,
+        quantity,
       };
 
       return [...prevCart, cartItem];
