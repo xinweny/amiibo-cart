@@ -2,10 +2,15 @@ import React, { useState, useEffect } from 'react';
 
 import ShopMenu from './ShopMenu';
 import CardDisplay from './CardDisplay';
+import LoadingPage from './LoadingPage';
 
 function Shop() {
   const [series, setSeries] = useState([]);
   const [amiibos, setAmiibos] = useState([]);
+  const [isLoaded, setIsLoaded] = useState({
+    series: false,
+    amiibos: false,
+  });
 
   useEffect(() => {
     fetch('https://www.amiiboapi.com/api/amiiboseries/')
@@ -43,15 +48,25 @@ function Shop() {
 
         setAmiibos(amiiboData);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => err);
   }, []);
+
+  useEffect(() => setIsLoaded((prev) => ({ ...prev, series: true })), [series]);
+
+  useEffect(() => setIsLoaded((prev) => ({ ...prev, amiibos: true })), [amiibos]);
 
   return (
     <div>
-      <ShopMenu series={series} />
-      {(amiibos.length > 0) ? <CardDisplay amiibos={amiibos} /> : ''}
+      {(Object.values(isLoaded).every((loaded) => loaded === true))
+        ? (
+          <div>
+            <ShopMenu series={series} />
+            {(amiibos.length > 0) ? <CardDisplay amiibos={amiibos} /> : ''}
+          </div>
+        )
+        : (
+          <LoadingPage />
+        )}
     </div>
   );
 }
