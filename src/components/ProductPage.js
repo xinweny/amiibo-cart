@@ -12,8 +12,6 @@ function ProductPage({ addToCart }) {
     ? { ...useLocation().state }
     : JSON.parse(localStorage.getItem(useParams().id));
 
-  amiibo.price = Number(amiibo.price);
-
   return (
     <div className="product-page">
       <h2>{amiibo.name}</h2>
