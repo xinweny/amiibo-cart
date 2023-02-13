@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import '../styles/ProductCard.css';
 
 function ProductCard({ amiibo }) {
+  const splitPrice = amiibo.price.toString().split('.');
+
   return (
     <Link
       to={`/shop/amiibo/${amiibo.id}`}
@@ -11,9 +13,16 @@ function ProductCard({ amiibo }) {
       onClick={() => localStorage.setItem(amiibo.id, JSON.stringify(amiibo))}
     >
       <div className="product-card">
-        <img src={amiibo.image} alt={amiibo.name} />
-        <p>{amiibo.name}</p>
-        <p>${amiibo.price}</p>
+        <div className="card-image">
+          <img src={amiibo.image} alt={amiibo.name} />
+        </div>
+        <div className="card-info">
+          <p>{amiibo.name}</p>
+          <div className="price">
+            <p className="dollars">${splitPrice[0]}</p>
+            <p className="cents">{splitPrice[1]}</p>
+          </div>
+        </div>
       </div>
     </Link>
   );

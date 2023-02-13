@@ -4,6 +4,7 @@
 	display: grid;
 	grid-template-rows: auto minmax(0,1fr) auto;
 	overflow: hidden;
+	background: linear-gradient(214deg, rgba(223,0,162,1) 0%, rgba(255,0,0,1) 100%);
 }
 
 .content {

@@ -1,9 +1,58 @@
 .product-card {
-	display: block;
-	height: 250px;
+	height: 275px;
+	display: grid;
+	grid-template-rows: 200px 1fr;
+	justify-items: stretch;
+	background-color: white;
+	border-radius: 24px;
+	position: relative;
+	top: 0;
+	transition: top ease 0.5s;
+}
+
+.product-card:hover {
+	top: -16px;
+}
+
+.card-info {
+	justify-self: stretch;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 12px;
+}
+
+.card-info > p {
+	font-size: 14px;
+}
+
+.card-image {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: lightgray;
+	border-radius: 24px 24px 0px 0px;
+	padding: 24px;
 }
 
 .product-card img {
-	width: 100%;
-	height: auto;
+	align-self: center;
+	width:auto;
+	max-width: 100%;
+	max-height: 150px;
+}
+
+.price {
+	align-self: flex-end;
+	font-weight: bold;
+	display: flex;
+	gap: 2px;
+}
+
+.price .dollars {
+	font-size: 18px;
+}
+
+.price .cents {
+	font-size: 12px;
 }

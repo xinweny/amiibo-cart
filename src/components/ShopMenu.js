@@ -6,9 +6,9 @@ import '../styles/ShopMenu.css';
 function ShopMenu({ series, setCurrentSeries }) {
   const [activeLink, setActiveLink] = useState('All');
 
-  const activeClsName = (active) => (activeLink === active ? 'active' : '');
-
   useEffect(() => setCurrentSeries(activeLink), [activeLink]);
+
+  const activeClsName = (active) => (activeLink === active ? 'active' : '');
 
   return (
     <div className="shop-menu">
@@ -18,6 +18,7 @@ function ShopMenu({ series, setCurrentSeries }) {
         </Link>
         {series.map((s) => (
           <Link
+            key={s.key}
             to={`/shop/series/${encodeURIComponent(s.name)}`}
             onClick={() => setActiveLink(s.name)}
           >

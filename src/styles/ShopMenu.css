@@ -2,10 +2,11 @@
 	padding: 24px;
 	padding-right: 32px;
 	overflow-y: hidden;
+	color: white;
 }
 
 .shop-menu:hover {
-	overflow-y: scroll;
+	overflow-y: auto;
 }
 
 .shop-menu > ul {
@@ -21,7 +22,7 @@
 .shop-menu li:after {
 	display: block;
   content: '';
-	border-bottom: 4px solid gray;
+	border-bottom: 4px solid black;
 	transition: transform 250ms ease-in-out;
 	transform: scaleX(0);
 	transform-origin: 0% 50%; 
@@ -39,6 +40,6 @@
 .shop-menu li.active:after {
 	display: block;
   content: '';
-	border-bottom: 4px solid black;
+	border-bottom: 4px solid white;
 	transform: scaleX(1);
 }

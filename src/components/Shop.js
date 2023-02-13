@@ -80,10 +80,13 @@ function Shop() {
   if (Object.values(isLoaded).every((loaded) => loaded === true)) {
     return (
       <div className="shop">
-        <ShopMenu series={series} setCurrentSeries={setCurrentSeries} />
+        <ShopMenu
+          series={series}
+          setCurrentSeries={setCurrentSeries}
+        />
         <CardDisplay
           series={currentSeries}
-          amiibos={currentSeries === 'All'
+          amiibos={(currentSeries === 'All')
             ? amiibos
             : amiibos.filter((amiibo) => amiibo.amiiboSeries === currentSeries)}
         />
