@@ -30,6 +30,7 @@ function Shop() {
         }
 
         const uniqueSeries = Array.from(new Set(data.amiibo.map((s) => s.name)));
+        uniqueSeries.push(uniqueSeries.splice(uniqueSeries.findIndex((name) => name === 'Others'), 1)[0]);
         setSeries(uniqueSeries.map((name) => data.amiibo.find((s) => s.name === name)));
       })
       .catch((errObj) => setHasError(errObj));
