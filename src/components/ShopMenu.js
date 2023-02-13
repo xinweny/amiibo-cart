@@ -1,15 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import '../styles/ShopMenu.css';
 
-function ShopMenu({ series }) {
+function ShopMenu({ series, setCurrentSeries }) {
+  const [activeLink, setActiveLink] = useState('All');
+
+  const activeClsName = (active) => (activeLink === active ? 'active' : '');
+
+  useEffect(() => setCurrentSeries(activeLink), [activeLink]);
+
   return (
     <div className="shop-menu">
       <ul>
+        <li className={activeClsName('All')}>
+          <Link to="/shop" onClick={() => setActiveLink('All')}>
+            All
+          </Link>
+        </li>
         {series.map((s) => (
-          <li key={s.key}>
-            <Link to={`/shop/series/${encodeURIComponent(s.name)}`}>{s.name}</Link>
+          <li className={activeClsName(s.name)} key={s.key}>
+            <Link
+              to={`/shop/series/${encodeURIComponent(s.name)}`}
+              onClick={() => setActiveLink(s.name)}
+            >{s.name}
+            </Link>
           </li>
         ))}
       </ul>

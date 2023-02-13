@@ -1,3 +1,7 @@
 .shop-menu {
 	align-self: stretch;
 }
+
+.shop-menu li.active {
+	font-weight: bold;
+}

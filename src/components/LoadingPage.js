@@ -1,9 +1,13 @@
 import React from 'react';
 
+import '../styles/LoadingPage.css';
+
 function LoadingPage() {
   return (
-    <div>
-      <img src="#" alt="Spinner" />
+    <div className="loading-page">
+      <div>
+        <p>Fetching amiibos...</p>
+      </div>
     </div>
   );
 }

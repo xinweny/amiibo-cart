@@ -9,6 +9,7 @@ import '../styles/Shop.css';
 
 function Shop() {
   const [series, setSeries] = useState([]);
+  const [currentSeries, setCurrentSeries] = useState('All');
   const [amiibos, setAmiibos] = useState([]);
   const [isLoaded, setIsLoaded] = useState({
     series: false,
@@ -65,17 +66,26 @@ function Shop() {
       .catch((errObj) => setHasError(errObj));
   }, []);
 
-  useEffect(() => setIsLoaded((prev) => ({ ...prev, series: true })), [series]);
+  useEffect(() => {
+    if (series.length > 0) setIsLoaded((prev) => ({ ...prev, series: true }));
+  }, [series]);
 
-  useEffect(() => setIsLoaded((prev) => ({ ...prev, amiibos: true })), [amiibos]);
+  useEffect(() => {
+    if (amiibos.length > 0) setIsLoaded((prev) => ({ ...prev, amiibos: true }));
+  }, [amiibos]);
 
   if (hasError) return <ErrorPage code={hasError.code} message={hasError.displayMsg} />;
 
   if (Object.values(isLoaded).every((loaded) => loaded === true)) {
     return (
       <div className="shop">
-        <ShopMenu series={series} />
-        {(amiibos.length > 0) ? <CardDisplay amiibos={amiibos} /> : ''}
+        <ShopMenu series={series} setCurrentSeries={setCurrentSeries} />
+        <CardDisplay
+          series={currentSeries}
+          amiibos={currentSeries === 'All'
+            ? amiibos
+            : amiibos.filter((amiibo) => amiibo.amiiboSeries === currentSeries)}
+        />
       </div>
     );
   }
