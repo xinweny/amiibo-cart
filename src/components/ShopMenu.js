@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import '../styles/ShopMenu.css';
+
 function ShopMenu({ series }) {
   return (
-    <div>
+    <div className="shop-menu">
       <ul>
         {series.map((s) => (
           <li key={s.key}>

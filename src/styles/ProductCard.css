@@ -1,0 +1,9 @@
+.product-card {
+	display: block;
+	height: 250px;
+}
+
+.product-card img {
+	width: 100%;
+	height: auto;
+}

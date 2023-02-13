@@ -5,6 +5,8 @@ import CardDisplay from './CardDisplay';
 import LoadingPage from './LoadingPage';
 import ErrorPage from './ErrorPage';
 
+import '../styles/Shop.css';
+
 function Shop() {
   const [series, setSeries] = useState([]);
   const [amiibos, setAmiibos] = useState([]);
@@ -69,20 +71,16 @@ function Shop() {
 
   if (hasError) return <ErrorPage code={hasError.code} message={hasError.displayMsg} />;
 
-  return (
-    <div>
-      {(Object.values(isLoaded).every((loaded) => loaded === true))
-        ? (
-          <div>
-            <ShopMenu series={series} />
-            {(amiibos.length > 0) ? <CardDisplay amiibos={amiibos} /> : ''}
-          </div>
-        )
-        : (
-          <LoadingPage />
-        )}
-    </div>
-  );
+  if (Object.values(isLoaded).every((loaded) => loaded === true)) {
+    return (
+      <div className="shop">
+        <ShopMenu series={series} />
+        {(amiibos.length > 0) ? <CardDisplay amiibos={amiibos} /> : ''}
+      </div>
+    );
+  }
+
+  return <LoadingPage />;
 }
 
 export default Shop;

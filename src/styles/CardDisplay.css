@@ -1,0 +1,12 @@
+.card-display {
+	display: flex;
+  flex-direction: column;
+}
+
+.product-cards {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+	gap: 24px;
+	flex: 1 0 1px;
+	overflow-y: scroll;
+}

@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 
 import ProductCard from './ProductCard';
 
+import '../styles/CardDisplay.css';
+
 function CardDisplay({ amiibos }) {
   const { series } = useParams();
 
@@ -11,8 +13,10 @@ function CardDisplay({ amiibos }) {
     : amiibos;
 
   return (
-    <div>
-      <h2>{series || 'All'}</h2>
+    <div className="card-display">
+      <div>
+        <h2>{series || 'All'}</h2>
+      </div>
       <div className="product-cards">
         {showAmiibos.map((amiibo) => <ProductCard key={amiibo.id} amiibo={amiibo} />)}
       </div>
