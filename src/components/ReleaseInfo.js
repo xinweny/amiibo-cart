@@ -2,6 +2,8 @@ import React from 'react';
 
 import { format } from 'date-fns';
 
+import '../styles/ReleaseInfo.css';
+
 function ReleaseInfo({ releases }) {
   const formatDate = (strDate) => {
     const date = strDate.split('-').map((val) => Number(val));
@@ -11,10 +13,12 @@ function ReleaseInfo({ releases }) {
   return (
     <div className="release-info">
       {Object.keys(releases).map((region) => (
-        <div key={region}>
+        <React.Fragment key={region}>
           <img src="#" alt={region} />
-          <p>{formatDate(releases[region])}</p>
-        </div>
+          {(releases[region])
+            ? <p>{formatDate(releases[region])}</p>
+            : <p>-</p>}
+        </React.Fragment>
       ))}
     </div>
   );

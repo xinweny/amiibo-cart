@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import uniqid from 'uniqid';
 
+import '../styles/UsageTable.css';
+
 function UsageTable({ usageData }) {
   const consoles = Object.keys(usageData);
   const [activeTab, setActiveTab] = useState(consoles[0]);
@@ -32,7 +34,7 @@ function UsageTable({ usageData }) {
   };
 
   return (
-    <div>
+    <div className="usage-table">
       <div className="table-tabs">
         {consoles.map((console) => (
           <button
@@ -45,22 +47,24 @@ function UsageTable({ usageData }) {
           </button>
         ))}
       </div>
-      <div className="usage-table">
-        {(usageData[activeTab].length > 0)
-          ? formatUsages(usageData[activeTab]).map((data) => (
-            <div className="row" key={data.id}>
-              <div className="game-name">{data.game}</div>
-              <div className="game-usage">
-                {data.uses.map((use) => (
-                  <div key={uniqid()}>{use}</div>
-                ))}
-              </div>
-            </div>
-          ))
-          : (
-            <div>No uses found.</div>
-          )}
-      </div>
+      {(usageData[activeTab].length > 0)
+        ? (
+          <div className="usage-table-contents">
+            {formatUsages(usageData[activeTab]).map((data) => (
+              <React.Fragment key={data.id}>
+                <div className="game-name">{data.game}</div>
+                <div className="game-usage">
+                  {data.uses.map((use) => (
+                    <div key={uniqid()}>{use}</div>
+                  ))}
+                </div>
+              </React.Fragment>
+            ))}
+          </div>
+        )
+        : (
+          <div>No uses found.</div>
+        )}
     </div>
   );
 }
