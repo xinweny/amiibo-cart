@@ -3,13 +3,18 @@ import { Link } from 'react-router-dom';
 
 import CartButton from './CartButton';
 
+import amiiboLogo from '../assets/amiibo-logo.png';
+
 import '../styles/NavBar.css';
 
 function NavBar({ cart }) {
   return (
     <div className="nav-bar">
       <Link to="/">
-        <h1>Amiibo Cart</h1>
+        <div className="title">
+          <img src={amiiboLogo} alt="Amiibo Logo" />
+          <h1>Amiibo Cart</h1>
+        </div>
       </Link>
       <ul className="nav-links">
         <li><Link to="/">Home</Link></li>

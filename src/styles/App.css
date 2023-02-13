@@ -9,5 +9,4 @@
 .content {
 	display: grid;
 	grid-template-rows: 1fr;
-	padding-left: 24px;
 }

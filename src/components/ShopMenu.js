@@ -13,19 +13,18 @@ function ShopMenu({ series, setCurrentSeries }) {
   return (
     <div className="shop-menu">
       <ul>
-        <li className={activeClsName('All')}>
-          <Link to="/shop" onClick={() => setActiveLink('All')}>
-            All
-          </Link>
-        </li>
+        <Link to="/shop" onClick={() => setActiveLink('All')}>
+          <li className={activeClsName('All')}>All</li>
+        </Link>
         {series.map((s) => (
-          <li className={activeClsName(s.name)} key={s.key}>
-            <Link
-              to={`/shop/series/${encodeURIComponent(s.name)}`}
-              onClick={() => setActiveLink(s.name)}
-            >{s.name}
-            </Link>
-          </li>
+          <Link
+            to={`/shop/series/${encodeURIComponent(s.name)}`}
+            onClick={() => setActiveLink(s.name)}
+          >
+            <li className={activeClsName(s.name)} key={s.key}>
+              {s.name}
+            </li>
+          </Link>
         ))}
       </ul>
     </div>
