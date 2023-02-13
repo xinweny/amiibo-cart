@@ -9,4 +9,5 @@
 	gap: 24px;
 	flex: 1 0 1px;
 	overflow-y: scroll;
+	padding-right: 24px;
 }

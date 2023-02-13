@@ -24,6 +24,6 @@ button {
 	background-color: transparent;
 }
 
-.text-center {
-	text-align: center;
+button:hover {
+	cursor: pointer;
 }

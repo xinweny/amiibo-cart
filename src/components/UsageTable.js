@@ -55,7 +55,7 @@ function UsageTable({ usageData }) {
                 <div className="game-name">{data.game}</div>
                 <div className="game-usage">
                   {data.uses.map((use) => (
-                    <div key={uniqid()}>{use}</div>
+                    <div key={uniqid()}>- {use}</div>
                   ))}
                 </div>
               </React.Fragment>
