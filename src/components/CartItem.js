@@ -7,12 +7,15 @@ function CartItem({ item, editQuantity, deleteItem }) {
   const [quantity, setQuantity] = useState({ ...item }.quantity);
   const [showEditQuantity, setShowEditQuantity] = useState(false);
 
+  const { amiibo } = item;
+
   return (
     <div className="cart-item">
       <div>
-        <img src={item.image} alt={item.name} />
-        <Link to={`/shop/amiibo/${item.id}`}>
-          <p>{item.name} ({item.series})</p>
+        <img src={amiibo.image} alt={amiibo.name} />
+        <p>${amiibo.price}</p>
+        <Link to={`/shop/amiibo/${item.id}`} state={amiibo}>
+          <p>{amiibo.name} ({amiibo.amiiboSeries})</p>
         </Link>
         {(showEditQuantity)
           ? (
@@ -37,7 +40,7 @@ function CartItem({ item, editQuantity, deleteItem }) {
               </button>
             </div>
           )}
-        <p>${item.price * item.quantity}</p>
+        <p>${amiibo.price * item.quantity}</p>
       </div>
       <button type="button" onClick={() => deleteItem(item.id)}>x</button>
     </div>

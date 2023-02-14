@@ -10,7 +10,7 @@ function App() {
 
   useEffect(() => {
     const newTotal = cart.reduce((currTotal, item) => (
-      currTotal + (item.price * item.quantity)
+      currTotal + (item.amiibo.price * item.quantity)
     ), 0);
 
     setTotal(newTotal);
@@ -28,10 +28,7 @@ function App() {
 
       const cartItem = {
         id: amiibo.id,
-        name: amiibo.name,
-        image: amiibo.image,
-        price: amiibo.price,
-        series: amiibo.amiiboSeries,
+        amiibo,
         quantity,
       };
 
