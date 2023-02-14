@@ -2,6 +2,8 @@ import React from 'react';
 
 import CartItem from './CartItem';
 
+import '../styles/CheckoutPage.css';
+
 function CheckoutPage({
   cart,
   total,

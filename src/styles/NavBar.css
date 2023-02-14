@@ -39,6 +39,19 @@
 	text-transform: uppercase;
 }
 
+.nav-bar li:after {
+	display: block;
+  content: '';
+	padding-bottom: 4px;
+	border-bottom: 2px solid black;
+	transition: transform 250ms ease-in-out;
+	transform: scaleX(0);
+}
+
+.nav-bar li:hover:after {
+	transform: scaleX(1);
+}
+
 .cart-btn {
 	position: relative;
 }
