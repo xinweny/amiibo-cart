@@ -7,11 +7,16 @@ import '../styles/SearchBar.css';
 
 function SearchBar() {
   const [query, setQuery] = useState('');
+  let linkRef;
 
   return (
     <div className="search-bar">
-      <input type="text" onChange={(e) => setQuery(e.target.value)} />
-      <Link to={`/shop?query=${query}`}>
+      <input
+        type="text"
+        onChange={(e) => setQuery(e.target.value)}
+        onKeyDown={(e) => { if (e.key === 'Enter') linkRef.click(); }}
+      />
+      <Link to={`/shop?query=${query}`} ref={(ref) => { linkRef = ref; }}>
         <img src={searchIcon} alt="Search icon" />
       </Link>
     </div>
