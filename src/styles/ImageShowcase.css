@@ -1,0 +1,46 @@
+.big-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: white;
+	height: 600px;
+	width: 100%;
+	border-radius: 16px 16px 0px 0px;
+	padding: 24px;
+	overflow: hidden;
+}
+
+.big-container img {
+	max-height: 100%;
+	max-width: 100%;
+	transition: 0.5s transform ease-in-out;
+}
+
+.big-container img:hover {
+	cursor: zoom-in;
+	transform: scale(1.5);
+}
+
+.image-previews {
+	height: 100px;
+	display: flex;
+	gap: 16px;
+	padding: 16px;
+	background-color: lightgray;
+	border-radius: 0px 0px 16px 16px;
+}
+
+.image-previews button {
+	height: 100%;
+}
+
+.image-previews img {
+	height: 100%;
+	width: auto;
+	background-color: white;
+}
+
+.current {
+	border: 2px black solid;
+}
+

@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import uniqid from 'uniqid';
 
 import UsageTable from './UsageTable';
 import ReleaseInfo from './ReleaseInfo';
 import InputQuantity from './InputQuantity';
+import ImageShowcase from './ImageShowcase';
+
+import nSeal from '../assets/nintendo-seal.png';
 
 import '../styles/ProductPage.css';
 
@@ -14,26 +18,26 @@ function ProductPage({ addToCart }) {
 
   return (
     <div className="product-page">
-      <img src={amiibo.image} alt={amiibo.name} />
-      <div className="main-info">
-        <div>
-          <div className="product-details">
-            <p>{amiibo.amiiboSeries}</p>
-            <h2 className="product-name">{amiibo.name}</h2>
-            <h2 className="text-right">${amiibo.price}</h2>
-            <div className="quantity">
-              <label htmlFor="page-input">Quantity</label>
-              <InputQuantity id="page-input" quantity={quantity} setQuantity={setQuantity} />
-            </div>
-            <button
-              className="add-to-cart-btn"
-              type="button"
-              onClick={() => addToCart(amiibo, quantity)}
-            >
-              Add To Cart
-            </button>
-          </div>
+      <ImageShowcase images={[
+        { id: uniqid(), src: amiibo.image, alt: amiibo.name },
+        { id: uniqid(), src: nSeal, alt: 'Nintendo Seal of Quality' },
+      ]}
+      />
+      <div className="product-details">
+        <p>{amiibo.amiiboSeries}</p>
+        <h2 className="product-name">{amiibo.name}</h2>
+        <h2 className="text-right">${amiibo.price}</h2>
+        <div className="quantity">
+          <label htmlFor="page-input">Quantity</label>
+          <InputQuantity id="page-input" quantity={quantity} setQuantity={setQuantity} />
         </div>
+        <button
+          className="add-to-cart-btn"
+          type="button"
+          onClick={() => addToCart(amiibo, quantity)}
+        >
+          Add To Cart
+        </button>
       </div>
       <div className="usage-section">
         <h2>Game Usage</h2>

@@ -3,15 +3,16 @@
 	padding: 24px;
 	display: grid;
 	grid-template-columns: 3fr 1fr;
-	align-items: center;
-	justify-items: center;
+	place-items: stretch;
 	column-gap: 48px;
 	row-gap: 48px;
 }
 
 .product-details {
+	align-self: center;
 	display: flex;
 	flex-direction: column;
+	color: white;
 }
 
 .product-name {
@@ -52,7 +53,8 @@
 }
 
 .usage-section h2, .releases-section h2 {
-	border-bottom: 2px solid black;
+	color: white;
+	border-bottom: 2px solid white;
 	margin-bottom: 12px;
 	padding-bottom: 4px;
 }
