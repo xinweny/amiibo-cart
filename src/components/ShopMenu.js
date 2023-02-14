@@ -3,10 +3,18 @@ import { Link } from 'react-router-dom';
 
 import '../styles/ShopMenu.css';
 
-function ShopMenu({ series, setCurrentSeries }) {
+function ShopMenu({ series, searchParams, setSearchParams }) {
   const [activeLink, setActiveLink] = useState('All');
 
-  useEffect(() => setCurrentSeries({ series: activeLink }), [activeLink]);
+  useEffect(() => {
+    const query = searchParams.get('query');
+
+    if (query) {
+      setSearchParams({ query });
+    } else {
+      setSearchParams({ series: activeLink });
+    }
+  }, [activeLink]);
 
   const activeClsName = (active) => (activeLink === active ? 'active' : '');
 

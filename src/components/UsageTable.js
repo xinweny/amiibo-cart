@@ -65,7 +65,7 @@ function UsageTable({ usageData }) {
           </table>
         )
         : (
-          <div>No uses found.</div>
+          <div className="no-uses">No uses found.</div>
         )}
     </div>
   );

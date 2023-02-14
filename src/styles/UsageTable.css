@@ -1,11 +1,12 @@
 .usage-table {
 	display: flex;
 	flex-direction: column;
-	align-items: center
+	align-items: stretch;
 }
 
 .table-tabs {
 	border-bottom: none;
+	align-self: center;
 }
 
 .table-tabs button {
@@ -45,4 +46,11 @@ table td {
 
 .game-usage {
 	padding-left: 32px;
+}
+
+.no-uses {
+	background-color: white;
+	border-radius: 8px;
+	padding: 8px;
+	text-align: center;
 }

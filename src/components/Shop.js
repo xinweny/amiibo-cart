@@ -18,8 +18,6 @@ function Shop() {
   const [hasError, setHasError] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
 
-  useEffect(() => setHasError(false), []);
-
   useEffect(() => {
     fetch('https://www.amiiboapi.com/api/amiiboseries/')
       .then((response) => response.json())
@@ -83,7 +81,8 @@ function Shop() {
       <div className="shop">
         <ShopMenu
           series={series}
-          setCurrentSeries={setSearchParams}
+          searchParams={searchParams}
+          setSearchParams={setSearchParams}
         />
         <CardDisplay searchParams={searchParams} amiibos={amiibos} />
       </div>
