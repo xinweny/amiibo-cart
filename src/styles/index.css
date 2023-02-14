@@ -49,6 +49,12 @@ ul {
 	list-style-type: none;
 }
 
+input {
+	border: none;
+	padding: 2px 4px;
+	border-radius: 4px;
+}
+
 button {
 	border: none;
 	background-color: transparent;
