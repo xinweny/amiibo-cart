@@ -1,6 +1,6 @@
 .nav-bar {
 	display: grid;
-	grid-template-columns: auto 1fr auto;
+	grid-template-columns: auto 1fr auto auto;
 	align-items: center;
 	gap: 24px;
 	padding: 16px;
@@ -22,6 +22,10 @@
 
 .title img {
 	height: 36px;
+}
+
+.search-bar {
+	justify-self: center;
 }
 
 .nav-links {

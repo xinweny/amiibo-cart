@@ -1,0 +1,16 @@
+.search-bar {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 4px;
+	border-bottom: 2px solid black;
+}
+
+.search-bar input {
+	width: 300px;
+	padding: 4px 4px 4px 8px;
+}
+
+.search-bar img {
+	width: 16px;
+}

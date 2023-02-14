@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 import ShopMenu from './ShopMenu';
 import CardDisplay from './CardDisplay';
@@ -9,13 +10,13 @@ import '../styles/Shop.css';
 
 function Shop() {
   const [series, setSeries] = useState([]);
-  const [currentSeries, setCurrentSeries] = useState('All');
   const [amiibos, setAmiibos] = useState([]);
   const [isLoaded, setIsLoaded] = useState({
     series: false,
     amiibos: false,
   });
   const [hasError, setHasError] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => setHasError(false), []);
 
@@ -82,14 +83,9 @@ function Shop() {
       <div className="shop">
         <ShopMenu
           series={series}
-          setCurrentSeries={setCurrentSeries}
+          setCurrentSeries={setSearchParams}
         />
-        <CardDisplay
-          series={currentSeries}
-          amiibos={(currentSeries === 'All')
-            ? amiibos
-            : amiibos.filter((amiibo) => amiibo.amiiboSeries === currentSeries)}
-        />
+        <CardDisplay searchParams={searchParams} amiibos={amiibos} />
       </div>
     );
   }

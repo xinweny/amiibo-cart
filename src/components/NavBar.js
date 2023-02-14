@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import CartButton from './CartButton';
+import SearchBar from './SearchBar';
 
 import amiiboLogo from '../assets/amiibo-logo-color.png';
 
@@ -16,6 +17,7 @@ function NavBar({ cart }) {
           <h1>Amiibo Cart</h1>
         </div>
       </Link>
+      <SearchBar />
       <ul className="nav-links">
         <li><Link to="/">Home</Link></li>
         <li><Link to="/shop">Shop</Link></li>
