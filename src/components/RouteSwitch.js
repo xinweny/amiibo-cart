@@ -1,5 +1,9 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from 'react-router-dom';
 
 import NavBar from './NavBar';
 import Homepage from './Homepage';
@@ -24,10 +28,9 @@ function RouteSwitch({
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/shop" element={<Shop />}>
-            <Route exact path="/shop" element={<CardDisplay />} />
-            <Route path="/shop/series/:series" element={<CardDisplay />} />
+            <Route path="?series=:series" element={<CardDisplay />} />
           </Route>
-          <Route path="/shop/amiibo/:id" element={<ProductPage addToCart={addToCart} />} />
+          <Route path="amiibo/:id" element={<ProductPage addToCart={addToCart} />} />
           <Route
             path="/checkout"
             element={

@@ -8,7 +8,7 @@ function ProductCard({ amiibo }) {
 
   return (
     <Link
-      to={`/shop/amiibo/${amiibo.id}`}
+      to={`/amiibo/${amiibo.id}`}
       state={{ amiibo }}
     >
       <div className="product-card">

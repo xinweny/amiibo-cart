@@ -9,6 +9,8 @@ function CardDisplay({ searchParams, amiibos }) {
   const query = searchParams.get('query');
 
   const filterAmiibos = (s, q) => {
+    if (!s && !q) return amiibos;
+
     if (s) {
       return (series === 'All')
         ? amiibos

@@ -20,7 +20,7 @@ function NavBar({ cart }) {
       <SearchBar />
       <ul className="nav-links">
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/shop">Shop</Link></li>
+        <li><Link to="/shop?series=All">Shop</Link></li>
       </ul>
       <CartButton cart={cart} />
     </div>

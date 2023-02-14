@@ -13,7 +13,7 @@ function ShopMenu({ series, setCurrentSeries }) {
   return (
     <div className="shop-menu">
       <ul>
-        <Link to="/shop" onClick={() => setActiveLink('All')}>
+        <Link to="/shop?series=All" onClick={() => setActiveLink('All')}>
           <li className={activeClsName('All')}>All</li>
         </Link>
         {series.map((s) => (

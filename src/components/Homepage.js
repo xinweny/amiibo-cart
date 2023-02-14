@@ -9,7 +9,7 @@ function Homepage() {
       <div className="homepage-content">
         <h1>Your one-stop Amiibo shop!</h1>
         <p>Rare and unique Amiibos for a great deal.</p>
-        <Link to="/shop">
+        <Link to="/shop?series=All">
           <button className="shop-btn" type="button">SHOP NOW</button>
         </Link>
       </div>
