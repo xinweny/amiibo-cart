@@ -49,18 +49,20 @@ function UsageTable({ usageData }) {
       </div>
       {(usageData[activeTab].length > 0)
         ? (
-          <div className="usage-table-contents">
+          <table cellSpacing="0">
             {formatUsages(usageData[activeTab]).map((data) => (
-              <React.Fragment key={data.id}>
-                <div className="game-name">{data.game}</div>
-                <div className="game-usage">
-                  {data.uses.map((use) => (
-                    <div key={uniqid()}>- {use}</div>
-                  ))}
-                </div>
-              </React.Fragment>
+              <tbody key={data.id}>
+                <tr>
+                  <td className="game-name">{data.game}</td>
+                  <td className="game-usage">
+                    {data.uses.map((use) => (
+                      <p key={uniqid()}>{use}</p>
+                    ))}
+                  </td>
+                </tr>
+              </tbody>
             ))}
-          </div>
+          </table>
         )
         : (
           <div>No uses found.</div>

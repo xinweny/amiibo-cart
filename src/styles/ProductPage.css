@@ -1,5 +1,6 @@
 .product-page {
 	overflow-y: scroll;
+	padding: 24px;
 }
 
 .main-info {
@@ -7,4 +8,34 @@
 	grid-template-columns: 3fr 1fr;
 	align-items: center;
 	justify-items: center;
+}
+
+.product-details {
+	display: flex;
+	flex-direction: column;
+}
+
+.product-name {
+	border-bottom: 2px solid white;
+	margin-bottom: 8px;
+}
+
+.quantity {
+	display: flex;
+	flex-direction: column;
+}
+
+.quantity label {
+	text-transform: uppercase;
+	font-size: 12px;
+}
+
+.add-to-cart-btn {
+	padding: 8px;
+	font-size: 14px;
+	border: 2px white solid;
+	border-radius: 8px;
+	color: white;
+	align-self: center;
+	margin-top: 12px;
 }

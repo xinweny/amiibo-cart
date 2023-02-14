@@ -31,3 +31,7 @@ button {
 button:hover {
 	cursor: pointer;
 }
+
+.text-right {
+	text-align: right;
+}

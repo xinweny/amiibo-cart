@@ -10,7 +10,6 @@ function ProductCard({ amiibo }) {
     <Link
       to={`/shop/amiibo/${amiibo.id}`}
       state={{ amiibo }}
-      onClick={() => localStorage.setItem(amiibo.id, JSON.stringify(amiibo))}
     >
       <div className="product-card">
         <div className="card-image">

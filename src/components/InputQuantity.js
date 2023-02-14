@@ -8,7 +8,7 @@ function InputQuantity({ quantity, setQuantity, id }) {
 
   return (
     <input
-      id="id"
+      id={id}
       value={quantity}
       type="number"
       min="0"
