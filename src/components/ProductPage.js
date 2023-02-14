@@ -20,7 +20,8 @@ function ProductPage({ addToCart }) {
         <div>
           <div>
             <h2>${amiibo.price}</h2>
-            <InputQuantity quantity={quantity} setQuantity={setQuantity} />
+            <label htmlFor="page-input">Quantity</label>
+            <InputQuantity id="page-input" quantity={quantity} setQuantity={setQuantity} />
             <button type="button" onClick={() => addToCart(amiibo, quantity)}>
               Add To Cart
             </button>

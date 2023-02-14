@@ -21,6 +21,11 @@
         "react/jsx-filename-extension": "off",
         "no-restricted-syntax": "off",
         "jsx-a11y/click-events-have-key-events": "off",
-        "react/prop-types": "off"
+        "react/prop-types": "off",
+        "jsx-ally/label-has-associated-control": [2, {
+            "labelComponents": ["label"],
+            "controlComponents": ["InputQuantity"],
+            "depth": 1
+        }]
     }
 }
