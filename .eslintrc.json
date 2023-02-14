@@ -22,10 +22,10 @@
         "no-restricted-syntax": "off",
         "jsx-a11y/click-events-have-key-events": "off",
         "react/prop-types": "off",
-        "jsx-ally/label-has-associated-control": [2, {
-            "labelComponents": ["label"],
+        "jsx-a11y/label-has-associated-control": [2, {
             "controlComponents": ["InputQuantity"],
-            "depth": 1
+            "depth": 2,
+            "assert": "either"
         }]
     }
 }

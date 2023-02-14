@@ -14,18 +14,18 @@ function ProductPage({ addToCart }) {
 
   return (
     <div className="product-page">
-      <h2>{amiibo.name}</h2>
       <div className="main-info">
         <img src={amiibo.image} alt={amiibo.name} />
         <div>
-          <div>
-            <h2>${amiibo.price}</h2>
-            <label htmlFor="page-input">Quantity</label>
-            <InputQuantity id="page-input" quantity={quantity} setQuantity={setQuantity} />
-            <button type="button" onClick={() => addToCart(amiibo, quantity)}>
-              Add To Cart
-            </button>
-          </div>
+          <h2>{amiibo.name}</h2>
+          <h2>${amiibo.price}</h2>
+          <label htmlFor="page-input">Quantity</label>
+          <InputQuantity id="page-input" quantity={quantity} setQuantity={setQuantity} />
+          <button type="button" onClick={() => addToCart(amiibo, quantity)}>
+            Add To Cart
+          </button>
+        </div>
+        <div>
           <div>
             <p>Amiibo series: {amiibo.amiiboSeries}</p>
             <p>Character: {amiibo.character}</p>
