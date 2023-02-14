@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import CartButton from './CartButton';
 
-import amiiboLogo from '../assets/amiibo-logo.png';
+import amiiboLogo from '../assets/amiibo-logo-color.png';
 
 import '../styles/NavBar.css';
 

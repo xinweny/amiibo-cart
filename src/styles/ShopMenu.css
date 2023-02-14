@@ -2,7 +2,7 @@
 	padding: 24px;
 	padding-right: 32px;
 	overflow-y: hidden;
-	color: white;
+	background-color: rgba(255, 255, 255, 0.5);
 }
 
 .shop-menu:hover {
@@ -22,7 +22,7 @@
 .shop-menu li:after {
 	display: block;
   content: '';
-	border-bottom: 4px solid black;
+	border-bottom: 2px solid gray;
 	transition: transform 250ms ease-in-out;
 	transform: scaleX(0);
 	transform-origin: 0% 50%; 
@@ -40,6 +40,6 @@
 .shop-menu li.active:after {
 	display: block;
   content: '';
-	border-bottom: 4px solid white;
+	border-bottom: 2px solid black;
 	transform: scaleX(1);
 }

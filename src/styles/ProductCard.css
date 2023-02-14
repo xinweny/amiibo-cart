@@ -15,10 +15,7 @@
 }
 
 .card-info {
-	justify-self: stretch;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
+	position: relative;
 	padding: 12px;
 }
 
@@ -37,12 +34,15 @@
 
 .product-card img {
 	align-self: center;
-	width:auto;
+	width: auto;
 	max-width: 100%;
 	max-height: 150px;
 }
 
 .price {
+	position: absolute;
+	bottom: 12px;
+	right: 12px;
 	align-self: flex-end;
 	font-weight: bold;
 	display: flex;
@@ -50,9 +50,9 @@
 }
 
 .price .dollars {
-	font-size: 18px;
+	font-size: 16px;
 }
 
 .price .cents {
-	font-size: 12px;
+	font-size: 10px;
 }

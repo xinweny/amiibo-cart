@@ -5,7 +5,10 @@
 }
 
 .card-display > h2 {
-	padding: 12px 24px;
+	margin: 12px 24px;
+	padding-bottom: 4px;
+	border-bottom: 2px white solid;
+	color: white;
 }
 
 .product-cards {

@@ -4,7 +4,9 @@
 	align-items: center;
 	gap: 24px;
 	padding: 16px;
-	color: white;
+	background-color: white;
+	box-shadow: 2px 0px 4px 2px #646464;
+	z-index: 1;
 }
 
 .title {
@@ -25,6 +27,7 @@
 
 .nav-bar li {
 	list-style-type: none;
+	text-transform: uppercase;
 }
 
 .cart-btn {
