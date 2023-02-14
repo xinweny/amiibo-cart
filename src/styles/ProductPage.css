@@ -1,13 +1,12 @@
 .product-page {
 	overflow-y: scroll;
 	padding: 24px;
-}
-
-.main-info {
 	display: grid;
 	grid-template-columns: 3fr 1fr;
 	align-items: center;
 	justify-items: center;
+	column-gap: 48px;
+	row-gap: 48px;
 }
 
 .product-details {
@@ -38,4 +37,21 @@
 	color: white;
 	align-self: center;
 	margin-top: 12px;
+}
+
+.usage-section {
+	place-self: flex-start stretch;
+}
+
+.releases-section {
+	place-self: flex-start stretch;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.usage-section h2, .releases-section h2 {
+	border-bottom: 2px solid black;
+	margin-bottom: 12px;
+	padding-bottom: 4px;
 }

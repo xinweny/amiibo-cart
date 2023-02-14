@@ -14,8 +14,8 @@ function ProductPage({ addToCart }) {
 
   return (
     <div className="product-page">
+      <img src={amiibo.image} alt={amiibo.name} />
       <div className="main-info">
-        <img src={amiibo.image} alt={amiibo.name} />
         <div>
           <div className="product-details">
             <p>{amiibo.amiiboSeries}</p>
@@ -33,13 +33,9 @@ function ProductPage({ addToCart }) {
               Add To Cart
             </button>
           </div>
-          <div>
-            <h3>Releases</h3>
-            <ReleaseInfo releases={amiibo.release} />
-          </div>
         </div>
       </div>
-      <div>
+      <div className="usage-section">
         <h2>Game Usage</h2>
         <UsageTable
           usageData={{
@@ -48,6 +44,10 @@ function ProductPage({ addToCart }) {
             'Wii U': amiibo.gamesWiiU,
           }}
         />
+      </div>
+      <div className="releases-section">
+        <h2>Releases</h2>
+        <ReleaseInfo releases={amiibo.release} />
       </div>
     </div>
   );
