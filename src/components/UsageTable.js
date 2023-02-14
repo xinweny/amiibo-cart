@@ -50,9 +50,9 @@ function UsageTable({ usageData }) {
       {(usageData[activeTab].length > 0)
         ? (
           <table cellSpacing="0">
-            {formatUsages(usageData[activeTab]).map((data) => (
-              <tbody key={data.id}>
-                <tr>
+            <tbody>
+              {formatUsages(usageData[activeTab]).map((data) => (
+                <tr key={data.id}>
                   <td className="game-name">{data.game}</td>
                   <td className="game-usage">
                     {data.uses.map((use) => (
@@ -60,8 +60,8 @@ function UsageTable({ usageData }) {
                     ))}
                   </td>
                 </tr>
-              </tbody>
-            ))}
+              ))}
+            </tbody>
           </table>
         )
         : (

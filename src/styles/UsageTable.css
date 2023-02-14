@@ -12,6 +12,7 @@
 	padding: 8px 16px;
 	font-size: 16px;
 	color: white;
+	font-weight: bold;
 }
 
 .table-tabs button.active {
@@ -23,24 +24,25 @@
 table {
 	border-radius: 8px;
 	overflow: hidden;
+	font-size: 14px;
 }
 
-table tr:nth-child(odd) {
+tbody tr:nth-child(odd) {
 	background-color: white;
 }
 
-table tr:nth-child(even) {
+tbody tr:nth-child(even) {
 	background-color: rgb(237, 237, 237);
 }
 
 table td {
-	padding: 8px 8px;
+	padding: 8px 16px;
+}
+
+.game-name {
+	font-weight: bold;
 }
 
 .game-usage {
-	padding-left: 48px;
-}
-
-.game-usage p {
-	display: list-item;
+	padding-left: 32px;
 }
