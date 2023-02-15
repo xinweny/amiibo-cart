@@ -35,11 +35,18 @@
 .add-to-cart-btn {
 	padding: 8px;
 	font-size: 14px;
+	font-weight: bold;
+	text-transform: uppercase;
 	border: 2px white solid;
 	border-radius: 8px;
 	color: white;
 	align-self: center;
 	margin-top: 12px;
+}
+
+.add-to-cart-btn:hover {
+	color: black;
+	background-color: white;
 }
 
 .usage-section {

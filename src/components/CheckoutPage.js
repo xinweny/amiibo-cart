@@ -10,6 +10,8 @@ function CheckoutPage({
   editQuantityInCart,
   deleteFromCart,
 }) {
+  const subTotal = <p>Total ({cart.length} item{cart.length === 1 ? '' : 's'}): ${total.toFixed(2)}</p>;
+
   return (
     <div className="checkout-page">
       <h1>Shopping Cart</h1>
@@ -28,9 +30,12 @@ function CheckoutPage({
               />
             ))}
           </div>
+          <div className="subtotal">
+            {subTotal}
+          </div>
         </div>
         <div className="to-checkout-section">
-          <p>Total: ${total.toFixed(2)}</p>
+          {subTotal}
           <button className="checkout-btn" type="button">Checkout</button>
         </div>
       </div>

@@ -3,12 +3,12 @@
 	display: grid;
 	grid-template-columns: auto 1fr auto;
 	gap: 24px;
-	border-bottom: 1px black solid;
+	border-bottom: 1px rgb(200, 200, 200) solid;
 	padding: 12px 0px;
 }
 
 .cart-item:first-child {
-	border-top: 1px black solid;
+	border-top: 1px rgb(200, 200, 200) solid;
 }
 
 .cart-image-container {
@@ -63,4 +63,23 @@
 	position: absolute;
 	bottom: 6px;
 	right: 6px;
+}
+
+.item-price {
+	display: flex;
+	align-self: flex-start;
+	gap: 12px;
+}
+
+.item-price > p:first-child {
+	font-size: 12px;
+	align-self: flex-end;
+}
+
+.item-price > p:last-child {
+	font-weight: bold;
+}
+
+.item-price .cents {
+	font-size: 10px;
 }

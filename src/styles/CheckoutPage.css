@@ -44,10 +44,33 @@
 	flex: 1 0 1px;
 }
 
+.subtotal {
+	text-align: right;
+	font-weight: bold;
+}
+
 .to-checkout-section {
-	position: sticky;
 	padding: 24px;
 	border-radius: 24px;
 	background-color: white;
-	align-self: flex-start;
+	align-self: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+	font-weight: bold;
+}
+
+.checkout-btn {
+	font-size: 16px;
+	padding: 12px;
+	color: white;
+	background-color: rgb(0, 0, 196);
+	border-radius: 12px;
+	transition: 0.25s background-color ease-in-out;
+}
+
+.checkout-btn:hover {
+	background-color: navy;
 }

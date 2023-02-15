@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import Price from './Price';
+
 import '../styles/ProductCard.css';
 
 function ProductCard({ amiibo }) {
-  const splitPrice = amiibo.price.toString().split('.');
-
   return (
     <Link
       to={`/amiibo/${amiibo.id}`}
@@ -17,10 +17,7 @@ function ProductCard({ amiibo }) {
         </div>
         <div className="card-info">
           <p>{amiibo.name}</p>
-          <div className="price">
-            <p className="dollars">${splitPrice[0]}</p>
-            <p className="cents">{splitPrice[1]}</p>
-          </div>
+          <Price price={amiibo.price} />
         </div>
       </div>
     </Link>

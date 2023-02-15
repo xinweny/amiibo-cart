@@ -39,20 +39,18 @@
 	max-height: 150px;
 }
 
-.price {
+.product-card .price {
 	position: absolute;
 	bottom: 12px;
 	right: 12px;
 	align-self: flex-end;
 	font-weight: bold;
-	display: flex;
-	gap: 2px;
 }
 
-.price .dollars {
+.product-card .dollars {
 	font-size: 16px;
 }
 
-.price .cents {
+.product-card .cents {
 	font-size: 10px;
 }

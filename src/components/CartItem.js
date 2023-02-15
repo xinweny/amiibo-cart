@@ -66,8 +66,9 @@ function CartItem({ item, editQuantity, deleteItem }) {
             )}
         </div>
       </div>
-      <div>
-        <p>{item.quantity}x ${amiibo.price}</p>
+      <div className="item-price">
+        <p>{item.quantity}x</p>
+        <p>${amiibo.price}</p>
       </div>
       <button
         className="delete-item-btn"
