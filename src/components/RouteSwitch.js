@@ -29,7 +29,7 @@ function RouteSwitch({
           <Route path="/shop" element={<Shop />} />
           <Route path="/amiibo/:id" element={<ProductPage addToCart={addToCart} />} />
           <Route
-            path="/checkout"
+            path="/cart"
             element={
               (
                 <CheckoutPage

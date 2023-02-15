@@ -5,7 +5,7 @@ import cartIcon from '../assets/cart.svg';
 
 function CartButton({ cart }) {
   return (
-    <Link to="/checkout">
+    <Link to="/cart">
       <div className="cart-btn">
         <div className="item-quantity">
           {cart.reduce((currNum, item) => currNum + item.quantity, 0)}
