@@ -13,12 +13,13 @@ function UsageTable({ usageData }) {
 
     for (const data of uData) {
       const { gameName } = data;
+
       if (allGames.includes(gameName)) {
         const index = usages.findIndex((u) => u.game === gameName);
         usages[index].uses = usages[index].uses
           .concat(data.amiiboUsage.map((u) => u.Usage));
       } else {
-        allGames.push(data.gameName);
+        allGames.push(gameName);
 
         const usage = {
           id: data.gameID[0],
@@ -43,15 +44,15 @@ function UsageTable({ usageData }) {
             className={(console === activeTab) ? 'active' : ''}
             onClick={() => setActiveTab(console)}
           >
-            {console}
+            {usageData[console].name}
           </button>
         ))}
       </div>
-      {(usageData[activeTab].length > 0)
+      {(usageData[activeTab].usages.length > 0)
         ? (
           <table cellSpacing="0">
             <tbody>
-              {formatUsages(usageData[activeTab]).map((data) => (
+              {formatUsages(usageData[activeTab].usages).map((data) => (
                 <tr key={data.id}>
                   <td className="game-name">{data.game}</td>
                   <td className="game-usage">

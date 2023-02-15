@@ -53,9 +53,9 @@ function ProductPage({ addToCart }) {
         <h2>Game Usage</h2>
         <UsageTable
           usageData={{
-            Switch: amiibo.gamesSwitch,
-            '3DS': amiibo.games3DS,
-            'Wii U': amiibo.gamesWiiU,
+            switch: { name: 'Switch', usages: amiibo.gamesSwitch },
+            tds: { name: '3DS', usages: amiibo.games3DS },
+            wiiU: { name: 'Wii U', usages: amiibo.gamesWiiU },
           }}
         />
       </div>
