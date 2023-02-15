@@ -62,9 +62,8 @@
 
 .item-quantity {
 	position: absolute;
-	top: -8px;
-	left: 1px;
-	width: 100%;
+	top: -10px;
+	width: calc(100% + 2px);
 	text-align: center;
 	font-size: 10px;
 	font-weight: bold;
