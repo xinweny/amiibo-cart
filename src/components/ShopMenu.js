@@ -21,13 +21,13 @@ function ShopMenu({ series, searchParams, setSearchParams }) {
   return (
     <div className="shop-menu">
       <ul>
-        <Link to="/amiibo-cart/shop?series=All" onClick={() => setActiveLink('All')}>
+        <Link to="/shop?series=All" onClick={() => setActiveLink('All')}>
           <li className={activeClsName('All')}>All</li>
         </Link>
         {series.map((s) => (
           <Link
             key={s.key}
-            to={`/amiibo-cart/shop?series=${encodeURIComponent(s.name)}`}
+            to={`/shop?series=${encodeURIComponent(s.name)}`}
             onClick={() => setActiveLink(s.name)}
           >
             <li className={activeClsName(s.name)} key={s.key}>

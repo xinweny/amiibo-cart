@@ -8,7 +8,7 @@ import '../styles/ProductCard.css';
 function ProductCard({ amiibo }) {
   return (
     <Link
-      to={`/amiibo-cart/amiibo/${amiibo.id}`}
+      to={`/amiibo/${amiibo.id}`}
       state={{ amiibo }}
     >
       <div className="product-card">
