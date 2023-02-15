@@ -15,7 +15,7 @@ function ReleaseInfo({ releases }) {
 
   const formatDate = (strDate) => {
     const date = strDate.split('-').map((val) => Number(val));
-    return format(new Date(...date), 'd LLL yyyy');
+    return format(new Date(...date), 'd LLLL yyyy');
   };
 
   return (

@@ -73,7 +73,7 @@
 	place-self: flex-start stretch;
 	display: flex;
 	flex-direction: column;
-	gap: 16px;
+	gap: 24px;
 }
 
 .usage-section h2, .releases-section h2 {
