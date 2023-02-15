@@ -19,13 +19,13 @@ function CartItem({ item, editQuantity, deleteItem }) {
 
   return (
     <div className="cart-item">
-      <Link to={`/amiibo/${item.id}`} state={{ amiibo }}>
+      <Link to={`/amiibo-cart/amiibo/${item.id}`} state={{ amiibo }}>
         <div className="cart-image-container">
           <img src={amiibo.image} alt={amiibo.name} />
         </div>
       </Link>
       <div className="item-details">
-        <Link to={`/amiibo/${item.id}`} state={{ amiibo }}>
+        <Link to={`/amiibo-cart/amiibo/${item.id}`} state={{ amiibo }}>
           <p className="name">{amiibo.name}</p>
         </Link>
         <p className="series">{amiibo.amiiboSeries}</p>

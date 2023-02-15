@@ -25,11 +25,11 @@ function RouteSwitch({
       <NavBar cart={cart} />
       <div className="content">
         <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/shop" element={<Shop />} />
-          <Route path="/amiibo/:id" element={<ProductPage addToCart={addToCart} />} />
+          <Route path="/amiibo-cart/" element={<Homepage />} />
+          <Route path="/amiibo-cart/shop" element={<Shop />} />
+          <Route path="/amiibo-cart/amiibo/:id" element={<ProductPage addToCart={addToCart} />} />
           <Route
-            path="/checkout"
+            path="/amiibo-cart/checkout"
             element={
               (
                 <CheckoutPage
