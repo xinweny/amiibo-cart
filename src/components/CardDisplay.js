@@ -28,7 +28,7 @@ function CardDisplay({ searchParams, amiibos }) {
     <div className="card-display">
       <h2>{series
         ? `${series} (${showAmiibos.length})`.toUpperCase()
-        : `Showing ${showAmiibos.length} results for '${query}'`}
+        : `Showing ${showAmiibos.length} result${showAmiibos.length > 1 ? 's' : ''} for '${query}'`}
       </h2>
       <div className="product-cards">
         {showAmiibos.map((a) => <ProductCard key={a.id} amiibo={a} />)}
