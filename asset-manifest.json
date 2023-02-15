@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/amiibo-cart/static/css/main.c0d126f4.css",
+    "main.js": "/amiibo-cart/static/js/main.6c336ded.js",
+    "static/media/Montserrat-Italic.ttf": "/amiibo-cart/static/media/Montserrat-Italic.58b98b5c47cf787cd97a.ttf",
+    "static/media/Montserrat-Bold.ttf": "/amiibo-cart/static/media/Montserrat-Bold.2c155811b35513d5beaa.ttf",
+    "static/media/Montserrat-Regular.ttf": "/amiibo-cart/static/media/Montserrat-Regular.ceb11275ab638627a643.ttf",
+    "static/media/nintendo-seal.png": "/amiibo-cart/static/media/nintendo-seal.0dcac7126ebf6ce482b7.png",
+    "static/media/bauhaus-bold.ttf": "/amiibo-cart/static/media/bauhaus-bold.6fd6f68db49a977ed994.ttf",
+    "static/media/amiibo-logo-color.png": "/amiibo-cart/static/media/amiibo-logo-color.3aacb2b3e694499fcb52.png",
+    "static/media/spinner.svg": "/amiibo-cart/static/media/spinner.8b37cb243dcf1f9a3a3f56fda344b3ae.svg",
+    "static/media/edit.svg": "/amiibo-cart/static/media/edit.b53db091192443bcf34e564cc89115b0.svg",
+    "static/media/cart.svg": "/amiibo-cart/static/media/cart.7ac82ea36517855a19c2162661c1d987.svg",
+    "static/media/github.svg": "/amiibo-cart/static/media/github.b100cf95f530481fabf417b0483813d3.svg",
+    "static/media/delete.svg": "/amiibo-cart/static/media/delete.6360e1aef5c35b2e92196b4b0f721e4d.svg",
+    "index.html": "/amiibo-cart/index.html",
+    "static/media/search.svg": "/amiibo-cart/static/media/search.c9c39e4e343d2d4e8c93af59d6009af9.svg",
+    "main.c0d126f4.css.map": "/amiibo-cart/static/css/main.c0d126f4.css.map",
+    "main.6c336ded.js.map": "/amiibo-cart/static/js/main.6c336ded.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c0d126f4.css",
+    "static/js/main.6c336ded.js"
+  ]
+}
