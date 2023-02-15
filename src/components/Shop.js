@@ -9,8 +9,8 @@ import ErrorPage from './ErrorPage';
 import '../styles/Shop.css';
 
 function Shop() {
-  const [series, setSeries] = useState([]);
-  const [amiibos, setAmiibos] = useState([]);
+  const [series, setSeries] = useState(JSON.parse(sessionStorage.getItem('series')) || []);
+  const [amiibos, setAmiibos] = useState(JSON.parse(sessionStorage.getItem('amiibos')) || []);
   const [isLoaded, setIsLoaded] = useState({
     series: false,
     amiibos: false,
@@ -19,51 +19,60 @@ function Shop() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
-    fetch('https://www.amiiboapi.com/api/amiiboseries/')
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.error) {
-          const errObj = { ...data };
-          errObj.displayMsg = 'Something went wrong. Please try again.';
-          throw errObj;
-        }
+    if (series.length === 0) {
+      fetch('https://www.amiiboapi.com/api/amiiboseries/')
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.error) {
+            const errObj = { ...data };
+            errObj.displayMsg = 'Something went wrong. Please try again.';
+            throw errObj;
+          }
 
-        const uniqueSeries = Array.from(new Set(data.amiibo.map((s) => s.name)));
-        uniqueSeries.push(uniqueSeries.splice(uniqueSeries.findIndex((name) => name === 'Others'), 1)[0]);
-        setSeries(uniqueSeries.map((name) => data.amiibo.find((s) => s.name === name)));
-      })
-      .catch((errObj) => setHasError(errObj));
+          const uniqueSeries = Array.from(new Set(data.amiibo.map((s) => s.name)));
+          uniqueSeries.push(uniqueSeries.splice(uniqueSeries.findIndex((name) => name === 'Others'), 1)[0]);
+
+          const uSeriesObj = uniqueSeries.map((name) => data.amiibo.find((s) => s.name === name));
+
+          setSeries(uSeriesObj);
+          sessionStorage.setItem('series', JSON.stringify(uSeriesObj));
+        })
+        .catch((errObj) => setHasError(errObj));
+    }
   }, []);
 
   useEffect(() => {
-    fetch('https://www.amiiboapi.com/api/amiibo/?showusage')
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.error) {
-          const errObj = { ...data };
-          errObj.displayMsg = 'Something went wrong. Please try again.';
-          throw errObj;
-        }
-
-        const amiiboData = data.amiibo.map((a) => {
-          let price;
-          switch (a.type) {
-            case 'Figure': price = 15.99; break;
-            case 'Card': price = 5.99; break;
-            case 'Yarn': price = 39.99; break;
-            default: price = 9.99; break;
+    if (amiibos.length === 0) {
+      fetch('https://www.amiiboapi.com/api/amiibo/?showusage')
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.error) {
+            const errObj = { ...data };
+            errObj.displayMsg = 'Something went wrong. Please try again.';
+            throw errObj;
           }
 
-          return {
-            ...a,
-            id: a.head + a.tail,
-            price,
-          };
-        });
+          const amiiboData = data.amiibo.map((a) => {
+            let price;
+            switch (a.type) {
+              case 'Figure': price = 15.99; break;
+              case 'Card': price = 5.99; break;
+              case 'Yarn': price = 39.99; break;
+              default: price = 9.99; break;
+            }
 
-        setAmiibos(amiiboData);
-      })
-      .catch((errObj) => setHasError(errObj));
+            return {
+              ...a,
+              id: a.head + a.tail,
+              price,
+            };
+          });
+
+          setAmiibos(amiiboData);
+          sessionStorage.setItem('amiibos', JSON.stringify(amiiboData));
+        })
+        .catch((errObj) => setHasError(errObj));
+    }
   }, []);
 
   useEffect(() => {
