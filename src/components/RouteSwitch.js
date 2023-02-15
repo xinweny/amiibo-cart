@@ -41,7 +41,7 @@ function RouteSwitch({
               )
             }
           />
-          <Route path="*" element={<ErrorPage code="404" message="Page not found" />} />
+          <Route path="*" element={<ErrorPage code={404} message="Page not found" />} />
         </Routes>
       </div>
       <Footer />

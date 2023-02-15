@@ -1,0 +1,17 @@
+.error-page {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.error-page > div {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: white;
+}
+
+.error-page .code {
+	font-size: 64px;
+}
