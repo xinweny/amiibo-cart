@@ -43,6 +43,7 @@ function CartItem({ item, editQuantity, deleteItem }) {
                   inputRef={(el) => { inputRef = el; }}
                 />
                 <button
+                  className="update-btn"
                   type="button"
                   onClick={() => {
                     editQuantity(item.id, quantity);

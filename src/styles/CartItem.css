@@ -57,6 +57,15 @@
 	background-color: lightgray;
 }
 
+.update-btn {
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.update-btn:hover {
+	color: navy;
+}
+
 .edit-quantity-btn {
 	width: 20px;
 	height: 20px;
