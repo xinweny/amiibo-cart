@@ -26,6 +26,8 @@
             "controlComponents": ["InputQuantity"],
             "depth": 2,
             "assert": "either"
-        }]
+        }],
+        "global-require": "off",
+        "import/no-dynamic-require": "off"
     }
 }
