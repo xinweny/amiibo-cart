@@ -3,4 +3,6 @@
 	grid-template-columns: auto 1fr;
 	grid-template-rows: minmax(0, 1fr);
 	overflow: hidden;
+	opacity: 1;
+	animation: fade-in 1s ease-in;
 }

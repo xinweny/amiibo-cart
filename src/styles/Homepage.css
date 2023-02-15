@@ -3,6 +3,8 @@
 	align-items: center;
 	justify-content: center;
 	color: white;
+	opacity: 1;
+	animation: fade-in 1s ease-in;
 }
 
 .homepage-content {
