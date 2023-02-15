@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/amiibo-cart/static/css/main.c0d126f4.css",
-    "main.js": "/amiibo-cart/static/js/main.6c336ded.js",
+    "main.js": "/amiibo-cart/static/js/main.1d2921b5.js",
     "static/media/Montserrat-Italic.ttf": "/amiibo-cart/static/media/Montserrat-Italic.58b98b5c47cf787cd97a.ttf",
     "static/media/Montserrat-Bold.ttf": "/amiibo-cart/static/media/Montserrat-Bold.2c155811b35513d5beaa.ttf",
     "static/media/Montserrat-Regular.ttf": "/amiibo-cart/static/media/Montserrat-Regular.ceb11275ab638627a643.ttf",
@@ -16,10 +16,10 @@
     "index.html": "/amiibo-cart/index.html",
     "static/media/search.svg": "/amiibo-cart/static/media/search.c9c39e4e343d2d4e8c93af59d6009af9.svg",
     "main.c0d126f4.css.map": "/amiibo-cart/static/css/main.c0d126f4.css.map",
-    "main.6c336ded.js.map": "/amiibo-cart/static/js/main.6c336ded.js.map"
+    "main.1d2921b5.js.map": "/amiibo-cart/static/js/main.1d2921b5.js.map"
   },
   "entrypoints": [
     "static/css/main.c0d126f4.css",
-    "static/js/main.6c336ded.js"
+    "static/js/main.1d2921b5.js"
   ]
 }
