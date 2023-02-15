@@ -16,24 +16,32 @@ function CheckoutPage({
     <div className="checkout-page">
       <h1>Shopping Cart</h1>
       <div>
-        <div className="cart">
-          <div className="cart-header">
-            <p>Price</p>
-          </div>
-          <div className="cart-items">
-            {cart.map((cartItem) => (
-              <CartItem
-                key={cartItem.id}
-                item={cartItem}
-                editQuantity={editQuantityInCart}
-                deleteItem={deleteFromCart}
-              />
-            ))}
-          </div>
-          <div className="subtotal">
-            {subTotal}
-          </div>
-        </div>
+        {(cart.length > 0)
+          ? (
+            <div className="cart">
+              <div className="cart-header">
+                <p>Price</p>
+              </div>
+              <div className="cart-items">
+                {cart.map((cartItem) => (
+                  <CartItem
+                    key={cartItem.id}
+                    item={cartItem}
+                    editQuantity={editQuantityInCart}
+                    deleteItem={deleteFromCart}
+                  />
+                ))}
+              </div>
+              <div className="subtotal">
+                {subTotal}
+              </div>
+            </div>
+          )
+          : (
+            <div className="no-items">
+              <p>No items in cart.</p>
+            </div>
+          )}
         <div className="to-checkout-section">
           {subTotal}
           <button className="checkout-btn" type="button">Checkout</button>

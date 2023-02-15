@@ -74,3 +74,15 @@
 .checkout-btn:hover {
 	background-color: navy;
 }
+
+.no-items {
+	background-color: white;
+	border-radius: 24px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.no-items p {
+	font-size: 20px;
+}
