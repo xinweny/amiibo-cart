@@ -3,6 +3,11 @@ import { Link } from 'react-router-dom';
 
 import InputQuantity from './InputQuantity';
 
+import editIcon from '../assets/edit.svg';
+import deleteIcon from '../assets/delete.svg';
+
+import '../styles/CartItem.css';
+
 function CartItem({ item, editQuantity, deleteItem }) {
   const [quantity, setQuantity] = useState({ ...item }.quantity);
   const [showEditQuantity, setShowEditQuantity] = useState(false);
@@ -12,15 +17,17 @@ function CartItem({ item, editQuantity, deleteItem }) {
   return (
     <div className="cart-item">
       <div>
-        <img src={amiibo.image} alt={amiibo.name} />
-        <p>${amiibo.price}</p>
+        <img className="cart-image" src={amiibo.image} alt={amiibo.name} />
+      </div>
+      <div>
         <Link to={`/shop/amiibo/${item.id}`} state={amiibo}>
-          <p>{amiibo.name} ({amiibo.amiiboSeries})</p>
+          <p>{amiibo.name}</p>
         </Link>
+        <p>{amiibo.amiiboSeries}</p>
         {(showEditQuantity)
           ? (
             <div>
-              <InputQuantity quantity={quantity} setQuantity={setQuantity} />
+              <InputQuantity quantity={quantity} setQuantity={setQuantity} min="1" />
               <button
                 type="button"
                 onClick={() => {
@@ -35,14 +42,23 @@ function CartItem({ item, editQuantity, deleteItem }) {
           : (
             <div>
               <p>{quantity}</p>
-              <button type="button" onClick={() => setShowEditQuantity(true)}>
-                <img src="#" alt="Show edit quantity" />
+              <button className="edit-quantity-btn" type="button" onClick={() => setShowEditQuantity(true)}>
+                <img src={editIcon} alt="Show edit quantity" />
               </button>
             </div>
           )}
+      </div>
+      <div>
+        <p>${amiibo.price}</p>
         <p>${amiibo.price * item.quantity}</p>
       </div>
-      <button type="button" onClick={() => deleteItem(item.id)}>x</button>
+      <button
+        className="delete-item-btn"
+        type="button"
+        onClick={() => deleteItem(item.id)}
+      >
+        <img src={deleteIcon} alt="Delete item" />
+      </button>
     </div>
   );
 }

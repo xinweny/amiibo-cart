@@ -7,6 +7,7 @@ import '../styles/SearchBar.css';
 
 function SearchBar() {
   const [query, setQuery] = useState('');
+  const [placeholder, setPlaceholder] = useState('');
   let linkRef; let inputRef;
 
   return (
@@ -14,8 +15,13 @@ function SearchBar() {
       <input
         ref={(ref) => { inputRef = ref; }}
         type="text"
+        placeholder={placeholder}
+        onFocus={() => setPlaceholder('Search amiibos...')}
         onChange={(e) => setQuery(e.target.value)}
-        onBlur={(e) => { e.target.value = ''; }}
+        onBlur={(e) => {
+          e.target.value = '';
+          setPlaceholder('');
+        }}
         onKeyDown={(e) => {
           if (e.key === 'Enter') {
             inputRef.blur();

@@ -1,0 +1,23 @@
+.cart-item {
+	position: relative;
+	display: flex;
+	padding: 12px;
+	border: 1px black solid;
+}
+
+.cart-image {
+	height: 150px;
+}
+
+.edit-quantity-btn {
+	width: 20px;
+	height: 20px;
+}
+
+.delete-item-btn {
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	top: 6px;
+	right: 6px;
+}

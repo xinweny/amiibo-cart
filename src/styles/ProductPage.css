@@ -1,6 +1,7 @@
 .product-page {
 	overflow-y: scroll;
-	padding: 24px;
+	padding: 48px;
+	padding-bottom: 12px;
 	display: grid;
 	grid-template-columns: 3fr 1fr;
 	place-items: stretch;

@@ -12,6 +12,7 @@ function CheckoutPage({
 }) {
   return (
     <div className="checkout-page">
+      <h1>Shopping Cart</h1>
       <div className="cart">
         <div className="cart-items">
           {cart.map((cartItem) => (
