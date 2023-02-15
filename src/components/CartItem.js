@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 import InputQuantity from './InputQuantity';
@@ -11,46 +11,63 @@ import '../styles/CartItem.css';
 function CartItem({ item, editQuantity, deleteItem }) {
   const [quantity, setQuantity] = useState({ ...item }.quantity);
   const [showEditQuantity, setShowEditQuantity] = useState(false);
+  let inputRef = useRef(null);
 
   const { amiibo } = item;
 
+  useEffect(() => { if (showEditQuantity) inputRef.focus(); }, [showEditQuantity]);
+
   return (
     <div className="cart-item">
-      <div>
-        <img className="cart-image" src={amiibo.image} alt={amiibo.name} />
-      </div>
-      <div>
-        <Link to={`/shop/amiibo/${item.id}`} state={amiibo}>
-          <p>{amiibo.name}</p>
+      <Link to={`/amiibo/${item.id}`} state={{ amiibo }}>
+        <div className="cart-image-container">
+          <img src={amiibo.image} alt={amiibo.name} />
+        </div>
+      </Link>
+      <div className="item-details">
+        <Link to={`/amiibo/${item.id}`} state={{ amiibo }}>
+          <p className="name">{amiibo.name}</p>
         </Link>
-        <p>{amiibo.amiiboSeries}</p>
-        {(showEditQuantity)
-          ? (
-            <div>
-              <InputQuantity quantity={quantity} setQuantity={setQuantity} min="1" />
-              <button
-                type="button"
-                onClick={() => {
-                  editQuantity(item.id, quantity);
-                  setShowEditQuantity(false);
-                }}
-              >
-                Update
-              </button>
-            </div>
-          )
-          : (
-            <div>
-              <p>{quantity}</p>
-              <button className="edit-quantity-btn" type="button" onClick={() => setShowEditQuantity(true)}>
-                <img src={editIcon} alt="Show edit quantity" />
-              </button>
-            </div>
-          )}
+        <p className="series">{amiibo.amiiboSeries}</p>
+        <div className="quantity">
+          <label htmlFor="quantity">Qty:</label>
+          {(showEditQuantity)
+            ? (
+              <>
+                <InputQuantity
+                  id="cart-quantity"
+                  quantity={quantity}
+                  setQuantity={setQuantity}
+                  min="1"
+                  inputRef={(el) => { inputRef = el; }}
+                />
+                <button
+                  type="button"
+                  onClick={() => {
+                    editQuantity(item.id, quantity);
+                    setShowEditQuantity(false);
+                  }}
+                >
+                  Update
+                </button>
+              </>
+            )
+            : (
+              <>
+                <p>{quantity}</p>
+                <button
+                  className="edit-quantity-btn"
+                  type="button"
+                  onClick={() => setShowEditQuantity(true)}
+                >
+                  <img src={editIcon} alt="Show edit quantity" />
+                </button>
+              </>
+            )}
+        </div>
       </div>
       <div>
-        <p>${amiibo.price}</p>
-        <p>${amiibo.price * item.quantity}</p>
+        <p>{item.quantity}x ${amiibo.price}</p>
       </div>
       <button
         className="delete-item-btn"

@@ -5,6 +5,7 @@ function InputQuantity({
   setQuantity,
   id,
   min,
+  inputRef,
 }) {
   const changeQuantity = (value) => {
     const re = /^[0-9\b]+$/;
@@ -20,6 +21,7 @@ function InputQuantity({
       type="number"
       min={min || 0}
       onChange={(e) => changeQuantity(e.target.value)}
+      ref={inputRef}
     />
   );
 }

@@ -21,13 +21,13 @@
 	margin-bottom: 8px;
 }
 
-.quantity {
+.product-details .quantity {
 	display: flex;
 	flex-direction: column;
 	gap: 4px;
 }
 
-.quantity label {
+.product-details .quantity label {
 	text-transform: uppercase;
 	font-size: 12px;
 }

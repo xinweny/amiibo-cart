@@ -13,7 +13,7 @@ function SearchBar() {
   return (
     <div className="search-bar">
       <input
-        ref={(ref) => { inputRef = ref; }}
+        ref={(el) => { inputRef = el; }}
         type="text"
         placeholder={placeholder}
         onFocus={() => setPlaceholder('Search amiibos...')}
@@ -31,7 +31,7 @@ function SearchBar() {
       />
       <Link
         to={`/shop?query=${query}`}
-        ref={(ref) => { linkRef = ref; }}
+        ref={(el) => { linkRef = el; }}
       >
         <img src={searchIcon} alt="Search icon" />
       </Link>
