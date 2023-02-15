@@ -8,7 +8,7 @@ function Footer() {
   return (
     <div className="footer">
       <p>Made by <a href="https://github.com/xinweny">xinweny</a> in 2023</p>
-      <a href="./">
+      <a href="https://github.com/xinweny/amiibo-cart">
         <img src={ghLogo} alt="Github icon" />
       </a>
     </div>
