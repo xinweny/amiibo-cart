@@ -7,14 +7,10 @@ function CartButton({ cart }) {
   return (
     <Link to="/checkout">
       <div className="cart-btn">
+        <div className="item-quantity">
+          {cart.reduce((currNum, item) => currNum + item.quantity, 0)}
+        </div>
         <img src={cartIcon} alt="Cart icon" />
-        {cart.length > 0
-          ? (
-            <div className="item-quantity">
-              {cart.reduce((currNum, item) => currNum + item.quantity, 0)}
-            </div>
-          )
-          : null}
       </div>
     </Link>
   );
