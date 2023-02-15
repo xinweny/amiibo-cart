@@ -54,3 +54,11 @@
 .product-card .cents {
 	font-size: 10px;
 }
+
+.product-card .type {
+	position: absolute;
+	text-transform: uppercase;
+	bottom: 12px;
+	left: 12px;
+	font-size: 10px;
+}

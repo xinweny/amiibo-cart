@@ -16,9 +16,25 @@
 	color: white;
 }
 
-.product-name {
+.series-type {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.series-type p:last-child {
+	font-size: 12px;
+	text-transform: uppercase;
+}
+
+.product-details .name {
 	border-bottom: 2px solid white;
 	margin-bottom: 8px;
+}
+
+.description {
+	margin-top: 24px;
+	font-size: 14px;
 }
 
 .product-details .quantity {

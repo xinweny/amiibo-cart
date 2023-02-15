@@ -24,8 +24,11 @@ function ProductPage({ addToCart }) {
       ]}
       />
       <div className="product-details">
-        <p>{amiibo.amiiboSeries}</p>
-        <h2 className="product-name">{amiibo.name}</h2>
+        <div className="series-type">
+          <p>{amiibo.amiiboSeries}</p>
+          <p>{amiibo.type}</p>
+        </div>
+        <h2 className="name">{amiibo.name}</h2>
         <h2 className="text-right">${amiibo.price}</h2>
         <div className="quantity">
           <label htmlFor="page-input">Quantity</label>
@@ -38,6 +41,13 @@ function ProductPage({ addToCart }) {
         >
           Add To Cart
         </button>
+        <div className="description">
+          <p>
+            {/* eslint-disable */}
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            {/* eslint-enable */}
+          </p>
+        </div>
       </div>
       <div className="usage-section">
         <h2>Game Usage</h2>

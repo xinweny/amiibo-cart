@@ -29,6 +29,7 @@ function CartItem({ item, editQuantity, deleteItem }) {
           <p className="name">{amiibo.name}</p>
         </Link>
         <p className="series">{amiibo.amiiboSeries}</p>
+        <p className="type">Type: {amiibo.type.toUpperCase()}</p>
         <div className="quantity">
           <label htmlFor="quantity">Qty:</label>
           {(showEditQuantity)

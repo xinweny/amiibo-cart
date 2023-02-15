@@ -26,7 +26,7 @@
 
 .item-details {
 	display: grid;
-	grid-template-rows: auto auto 1fr;
+	grid-template-rows: auto auto auto 1fr;
 }
 
 .cart-item .name {
@@ -37,6 +37,11 @@
 .cart-item .series {
 	font-style: italic;
 	font-size: 14px;
+}
+
+.cart-item .type {
+	margin-top: 8px;
+	font-size: 12px;
 }
 
 .cart-item .quantity {

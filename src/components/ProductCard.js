@@ -18,6 +18,7 @@ function ProductCard({ amiibo }) {
         <div className="card-info">
           <p>{amiibo.name}</p>
           <Price price={amiibo.price} />
+          <p className="type">{amiibo.type}</p>
         </div>
       </div>
     </Link>
